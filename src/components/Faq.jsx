@@ -3,9 +3,9 @@ import {Collapse} from 'react-collapse';
 import styled from "styled-components";
 
 
-const StyledFaq = styled.div
-` border: 1 px solid blue;
-
+const StyledFaq = styled.div` 
+  border: 2 px solid blue;
+  
 `
 ;
 
@@ -17,16 +17,18 @@ const Faq = () => {
   return (
     <div className='Content'>
       <StyledFaq onClick={closeMobileMenu}>
-      <p>Vem är jag?</p>
-      <Collapse isOpened={showHide}><p>Im batman</p></Collapse>
+      <p>lorem question</p>
+      <Collapse isOpened={showHide}><p>lorem answern</p></Collapse>
       </StyledFaq>
 
       <StyledFaq onClick={closeMobileMenu}>
-      <p>Vem är jag?</p>
-      <Collapse isOpened={showHide}><p>Im batman</p></Collapse>
+      <p>lorem question</p>
+      <Collapse isOpened={showHide}><p>lorem answer</p></Collapse>
       </StyledFaq>
       
     </div>
+    
+
   );
 };
 
