@@ -33,22 +33,65 @@ body {
   /* grid-template-rows: auto minmax(0px, 1fr); */
 }
 
+
 .card {
   border-bottom: 4px solid rgb(22, 189, 58);
   height: 50px;
+  padding: 3px;
+}
+
+.header-card-show-hide,
+.header-card {
+  border-bottom: 4px solid rgb(22, 189, 58);
+  padding: 3px;
 }
 
 .show-vertical {
   display: flex;
 }
-.topping {
+.first-col-width {
+  width: 70%;
   display: flex;
+  justify-content: flex-start;
 }
 
 .prices {
+  width: 30%;
   display: flex;
+  justify-content: space-around;
 }
 
+.standard-price {
+
+  
+}
+
+.family-price {
+ 
+}
+
+
+
+@media only screen and (max-width: 804px) {
+  .header-card-show-hide {
+    display: none;
+  }
+
+  /* .rotate {
+    transform: rotate(-90deg); */
+    /* Legacy vendor prefixes that you probably don't need... */
+    /* Safari */
+    /* -webkit-transform: rotate(-90deg); */
+    /* Firefox */
+    /* -moz-transform: rotate(-90deg); */
+    /* IE */
+    /* -ms-transform: rotate(-90deg); */
+    /* Opera */
+    /* -o-transform: rotate(-90deg); */
+    /* Internet Explorer */
+    /* filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  } */
+}
 
 
 

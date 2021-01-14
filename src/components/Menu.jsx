@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import standard from '../assets/standard.svg';
+import family from '../assets/family.svg';
 
 const Menu = () => {
   const [firstListPizzas, setFirstListPizzas] = useState();
@@ -90,38 +92,33 @@ const Menu = () => {
 
   const outputPizzasFirstColumn = pizzas.slice(0,firstListPizzas).map((pizza) => (
     <div className="card" key={pizza.id}>
-      <div>{pizza.name}</div>
-
       <div className="show-vertical">
-        <div className="topping">
-        {pizza.topping.map((top) => (
-          <div >{top},&nbsp; </div>
-        ))}
-        </div>
-
+        <div className="first-col-width">{pizza.name}</div>
         <div className="prices">
-          <div>{pizza.price}</div>
-          <div>{pizza.price_family}</div>
+          <div className="standard-price">{pizza.price}</div>
+          <div className="family-price">{pizza.price_family}</div>
         </div>
+      </div>
+
+      <div className="first-col-width">
+        <span>&nbsp;&nbsp;&nbsp;</span>
+        {pizza.topping.map((item, index) => <span key={index}>{ (index ? ', ' : '') + item }</span> )}
       </div>
     </div>
   ));
 
   const outputPizzasSecondColumn = pizzas.slice(firstListPizzas,secondListPizzas).map((pizza) => (
     <div className="card" key={pizza.id}>
-      <div>{pizza.name}</div>
-
       <div className="show-vertical">
-        <div className="topping">
-        {pizza.topping.map((top) => (
-          <div >{top},&nbsp; </div>
-        ))}
-        </div>
-
+        <div className="first-col-width">{pizza.name}</div>
         <div className="prices">
-          <div>{pizza.price}</div>
-          <div>{pizza.price_family}</div>
+          <div className="standard-price">{pizza.price}</div>
+          <div className="family-price">{pizza.price_family}</div>
         </div>
+      </div>
+
+      <div className="first-col-width">
+        {pizza.topping.map((item, index) => <span key={index}>{ (index ? ', ' : '') + item }</span> )}
       </div>
     </div>
   ));
@@ -129,28 +126,41 @@ const Menu = () => {
 
   return (
     <div className='test'>
-
       <div className='gridding'>
 
         <div className="gTeAXC">
-          
-          <div className="card">
-            <div></div>
+          <div className="header-card">
+            {/* <div><b>Pizza</b></div> */}
             <div className="show-vertical">
-              <div className="topping">
-                <div >g</div>
-            </div>
-            <div className="prices">
-              <div></div>
-              <div></div>
+              <div className="first-col-width">
+                <div></div>
+              </div>
+              <div className="prices">
+                <div className="standard-price"><img title="my-img" src={standard} alt="my-img" /></div>
+                <div className="standard-price"><img title="my-img" src={family} alt="my-img" /></div>
+              </div>
             </div>
           </div>
+        {outputPizzasFirstColumn}
         </div>
 
-          {outputPizzasFirstColumn}</div>
-        <div className="gTeAXC"> {outputPizzasSecondColumn}</div>
-      </div>
+        <div className="gTeAXC"> 
+          <div className="header-card-show-hide">
+              {/* <div></div> */}
+              <div className="show-vertical">
+                <div className="first-col-width">
+                  <div><b></b></div>
+                </div>
+                <div className="prices">
+                <div className="standard-price"><img title="my-img" src={standard} alt="my-img" /></div>
+                  <div className="standard-price"><img title="my-img" src={family} alt="my-img" /></div>
+                </div>
+              </div>
+            </div> 
+        {outputPizzasSecondColumn}
+        </div>
 
+      </div>
     </div>
 
     
