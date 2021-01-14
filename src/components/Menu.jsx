@@ -72,7 +72,7 @@ const Menu = () => {
         "Skinka",
         "Ananas"
       ],
-      "price": 79,
+      "price": 89,
       "price_family": 120,
       "rank": 1
     }
