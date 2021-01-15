@@ -5,12 +5,16 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Menu from './components/Menu';
 import Faq from './components/Faq';
+import ContactBtn from './components/ContactFixed';
+
+
 import NotFound from './components/NotFound';
 
 function App() {
   return (
     <Router>
       <Header />
+      <ContactBtn/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Menu" element={<Menu />} />

@@ -88,7 +88,7 @@ const Menu = () => {
 
     setFirstListPizzas((number % 2) ? number/2 + .5 : number/2)
     setSecondListPizzas(firstListPizzas + ((number % 2) ? number/2 - .5 : number/2))
-  }, [pizzas,firstListPizzas,secondListPizzas ]);
+  }, [pizzas.length,firstListPizzas,secondListPizzas ]);
 
   const outputPizzasFirstColumn = pizzas.slice(0,firstListPizzas).map((pizza) => (
     <div className="card" key={pizza.id}>

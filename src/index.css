@@ -70,6 +70,25 @@ body {
  
 }
 
+.bar {
+  /* position: relative;
+  left: 100; */
+  
+}
+
+.foo {
+  position: relative;
+  bottom: 2px;
+  right: 130px;
+  width: 200px;
+  background-color: rgb(32, 201, 83);
+  color: rgb(31, 28, 199);
+}
+
+.reverse {
+  display: flex;
+  flex-direction: column-reverse;
+};
 
 
 @media only screen and (max-width: 804px) {
