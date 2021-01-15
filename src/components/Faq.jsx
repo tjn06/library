@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import {Collapse} from 'react-collapse';
 import styled from "styled-components";
-
+import ArrowDownIcon from './iconcomponents/ArrowDownIcon';
+import ArrowUpIcon from './iconcomponents/ArrowUpIcon';
+import Test from './iconcomponents/Test'
 
 const StyledFaq = styled.div` 
   border-bottom: 1px solid #9c9a9a;
@@ -49,11 +51,13 @@ const Faq = () => {
 
   return (
     <StyledContainer>
-      
+      <ArrowDownIcon fill="green"/>
+      <Test   left="green" center="black" right="yellow"/>
       <h1>FRÅGOR OCH SVAR</h1>
       <ul>
       {data.map((data, index) => (
       <StyledFaq onClick={() => toggleIsOpen(index)} key={index}>
+       <div> { showHide[index] ? <ArrowUpIcon fill="red"/> : <ArrowDownIcon fill="blue"/> } </div>
       <p>{data.question}</p>
       <Collapse isOpened={showHide[index]}><p>{data.answer}</p></Collapse>
       </StyledFaq>
