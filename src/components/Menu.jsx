@@ -70,6 +70,9 @@ const Menu = () => {
         "Tomat",
         "Ost",
         "Skinka",
+        "Ananas",
+        "Ost",
+        "Skinka",
         "Ananas"
       ],
       "price": 89,
@@ -82,10 +85,6 @@ const Menu = () => {
   useEffect(() => {
   
   let number = (pizzas.length);
-  // let halfRoundedUp = (number % 2) ? number/2 + .5 : number/2;
-  // let halfRoundedDown = (number % 2) ? number/2 - .5 : number/2;
-
-
     setFirstListPizzas((number % 2) ? number/2 + .5 : number/2)
     setSecondListPizzas(firstListPizzas + ((number % 2) ? number/2 - .5 : number/2))
   }, [firstListPizzas, pizzas.length, secondListPizzas]);
@@ -101,7 +100,6 @@ const Menu = () => {
       </div>
 
       <div className="first-col-width">
-        <span>&nbsp;&nbsp;&nbsp;</span>
         {pizza.topping.map((item, index) => <span key={index}>{ (index ? ', ' : '') + item }</span> )}
       </div>
     </div>
