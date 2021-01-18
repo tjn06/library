@@ -1,48 +1,82 @@
 import React, { useState } from "react";
 import {Collapse} from 'react-collapse';
 import styled from "styled-components";
-import ContactBtn from './ContactBtn';
-
-const Styles = {
-  width: "70px",
-  position: "fixed",
-  bottom: "10px",
-  right: "10px",
-  
-};
-
-const StyledFaq = styled.div` 
-  border-bottom: 1px solid #9c9a9a;
-  cursor: crosshair;
-  font-style: oblique;
-   
-`
-;
+import ContactBtn from './iconcomponents/ContactBtn';
 
 
-
-const foo = ` 
-
-
-`
-;
-const StyledContainer = styled.button`
-  /* font-family: 'Josefin Sans', sans-serif;
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
+const StyledReverseFlex = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 400px;
-  padding: 0px 40px;
-  height: 400px;
-  background-color: #ffffff;;
-  color: #333;
-  transform: translateY(0);
-  transition: transform 0.3s ease;
-  background-color: lime; */
-`
+  flex-direction: column-reverse;
+  `;
+
+const StyledPosSizeCssClasses = styled.div` 
+  width: 70px;
+  position: fixed;
+  bottom: 4px;
+  right: -33px;
+
+  .collapse-container {
+    box-shadow: -2px 8px 10px -0px rgba(0, 0, 0, 0.253);
+    position: relative;
+    bottom: 36px;
+    right: 170px;
+    width: 200px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 70px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    background-color:#ffffff;
+    /* transition: 150ms; */
+  }
+
+  .collapse-container:after {
+    z-index: 1;
+    position: absolute;
+    bottom: -10px;
+    right: 20px;
+    margin-left: -25%;
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: solid 10px #ffffff;
+    border-left: solid 10px transparent;
+    border-right: solid 10px transparent;
+  }
+
+  .collapse-children {
+    height: 140px;
+    padding: 30px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 70px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    color: #4F4F4F;
+    background-color:#ffffff;
+  }
+`;
+
+
+const StyledContentItems = styled.div` 
+  .select-all-when-click {
+    -webkit-user-select: all;  /* Chrome 49+ */
+    -moz-user-select: all;     /* Firefox 43+ */
+    -ms-user-select: all;      /* No support yet */
+    user-select: all;          /* Likely future */   
+  }
+
+  .select-text-disabled {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+  }
+`;
+
+
 const data = [
   {
     question:"Telefon",
@@ -60,37 +94,36 @@ const data = [
   }
 ];
 
-const ContactFixed = () => {
-  const [showHide, setShowHide] = useState([]);
-  const [showHideBtn, setShowHideBtn] = useState(false);
 
-  //const closeMobileMenu = () => setShowHide(!showHide);
-  const toggleIsOpen = (index) =>{
-    let toggle = [...showHide];
-    toggle[index] = !toggle[index];
-    setShowHide(toggle)
+
+const ContactFixed = () => {
+  const [showHideContactContent, setShowHideContactContent] = useState(false);
+
+  function thisFuncShowHideContactContent(childParameterShowHideContactContent) {
+    setShowHideContactContent(childParameterShowHideContactContent)
   }
 
-  return (
-    <div className="footer" style={Styles}>
-      <div className="reverse">
-      <StyledContainer onClick={() => setShowHideBtn(!showHideBtn)}>Kontakt</StyledContainer>
-      <Collapse isOpened={showHideBtn} theme={{collapse: 'foo', content: 'bar'}}>
-      <div >
-      {data.map((data, index) => (
-      <StyledFaq className="reverse" onClick={() => toggleIsOpen(index)} key={index}>
-      <p>{data.question}</p>
-      <Collapse isOpened={showHide[index]}><p>{data.answer}</p></Collapse>
-      </StyledFaq>
- ))}
- </div>
-        
-      </Collapse>
-    </div>
-    </div>
-    
-    
 
+
+  return (
+    <StyledPosSizeCssClasses>
+      <StyledReverseFlex>
+        <ContactBtn childFuncShowHideContactContent={thisFuncShowHideContactContent}/>
+
+        <Collapse isOpened={showHideContactContent} theme={{collapse: 'collapse-container', content: 'collapse-children'}}>
+
+          {data.map((data, index) => (
+          <StyledContentItems key={index}>
+            <span className="select-text-disabled">{data.question}</span><br/>
+            <span className="select-all-when-click">{data.answer}</span>
+          </StyledContentItems>
+          ))}
+
+        </Collapse>
+
+      </StyledReverseFlex>
+    </StyledPosSizeCssClasses>
+    
   );
 };
 
