@@ -13,13 +13,13 @@ const StyledPosSizeCssClasses = styled.div`
   width: 70px;
   position: fixed;
   bottom: 4px;
-  right: -33px;
+  right: -20px;
 
   .collapse-container {
     box-shadow: -2px 8px 10px -0px rgba(0, 0, 0, 0.253);
     position: relative;
     bottom: 36px;
-    right: 170px;
+    right: 160px;
     width: 200px;
     border-top-left-radius: 40px;
     border-top-right-radius: 70px;
@@ -46,7 +46,7 @@ const StyledPosSizeCssClasses = styled.div`
   }
 
   .collapse-children {
-    height: 140px;
+    height: 200px;
     padding: 30px;
     border-top-left-radius: 40px;
     border-top-right-radius: 70px;
@@ -108,7 +108,7 @@ const ContactFixed = () => {
   return (
     <StyledPosSizeCssClasses>
       <StyledReverseFlex>
-        <ContactBtn childFuncShowHideContactContent={thisFuncShowHideContactContent}/>
+        <ContactBtn childFuncShowHideContactContent={thisFuncShowHideContactContent} width="75px"/>
 
         <Collapse isOpened={showHideContactContent} theme={{collapse: 'collapse-container', content: 'collapse-children'}}>
 
