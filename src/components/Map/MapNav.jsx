@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import L from 'leaflet';
 import markerIcon from '../../assets/markerIcon.png'
