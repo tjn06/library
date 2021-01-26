@@ -8,7 +8,7 @@ import ParalaxBlockOneTextBlock from './contentblock/paralaxblock/ParalaxBlockOn
 import HeroBlock from './contentblock/imageblock/HeroBlock';
 import {Link} from 'react-router-dom'
 import styled from "styled-components";
-import StandardButton from './Buttons/StandardButton'
+import StandardButton from './buttons/StandardButton'
 
 // import HeaderTwoRows from './HeaderTwoRows';
 

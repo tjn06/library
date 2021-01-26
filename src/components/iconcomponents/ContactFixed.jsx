@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {Collapse} from 'react-collapse';
 import styled from "styled-components";
-import ContactBtn from './iconcomponents/ContactBtn';
+import ContactBtn from './ContactBtn';
 
 
 const StyledReverseFlex = styled.div`

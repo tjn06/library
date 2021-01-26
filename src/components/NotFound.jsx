@@ -1,5 +1,5 @@
 import React from "react";
-import MapNav from "./Map/MapNav";
+import MapNav from "./map/MapNav";
 
 const NotFound = () => {
   

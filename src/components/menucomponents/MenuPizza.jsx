@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import standard from '../assets/standard.svg';
-import family from '../assets/family.svg';
+import standard from '../../assets/standard.svg';
+import family from '../../assets/family.svg';
 import { Routes, Route } from "react-router-dom";
 
 import styled from "styled-components";
@@ -52,12 +52,12 @@ const StyledShowVertical = styled.div`
 `;
 
 const StyledFirstRowWidth = styled.div`
-  width: 70%;
+  width: 85%;
   text-align: left;
 `;
 
 const StyledSecondRowPriceOrImage = styled.div`
-  width: 30%;
+  width: 15%;
   display: flex;
   justify-content: space-around;
 `;
@@ -195,27 +195,29 @@ const Input = styled.input`
 const pizzas = [
   {
     "id": 1,
-    "category": "Kebab",
-    "name": "KEBABTALLRIK MED POMMES",
+    "category": "Pizza",
+    "name": "Vesuvius",
     "topping": [
-      "ISBERGSSALLAD",
-      "GURKA",
-      "COCKTAILTOMATER"
+      "Tomat",
+      "Ost",
+      "Skinka"
     ],
     "price": 79,
+    "price_family": 120,
     "rank": 3
   },
   {
     "id": 2,
-    "category": "Kebab",
-    "name": "KEBABTALLRIK MED RIS",
+    "category": "Pizza",
+    "name": "Hawaii",
     "topping": [
-      "ISBERGSSALLAD",
-      "GURKA",
-      "COCKTAILTOMATER",
-      "LÖK"
+      "Basilika",
+      "Ost",
+      "Skinka",
+      "Ananas"
     ],
     "price": 79,
+    "price_family": 120,
     "rank": 1
   },
   {
@@ -229,12 +231,13 @@ const pizzas = [
       "Ananas"
     ],
     "price": 79,
+    "price_family": 120,
     "rank": 1
   },
   {
     "id": 4,
-    "category": "Kebab",
-    "name": "KEBABRULLE",
+    "category": "Pizza",
+    "name": "Grodan",
     "topping": [
       "Tomat",
       "Ost",
@@ -242,19 +245,25 @@ const pizzas = [
       "Ananas"
     ],
     "price": 79,
+    "price_family": 120,
     "rank": 1
   },
   {
     "id": 5,
-    "category": "Falafel",
-    "name": "FALAFEL MED POMMES",
+    "category": "Viking",
+    "name": "Special",
     "topping": [
-      "ISBERGSSALLAD",
-      "GURKA",
-      "COCKTAILTOMATER",
-      "LÖK"
+      "Tomat",
+      "Basilika",
+      "Skinka",
+      "Ananas",
+      "Ost",
+      "Skinka",
+      "Ananas",
+      "Gräs"
     ],
     "price": 89,
+    "price_family": 120,
     "rank": 1
   }
 ]
@@ -304,7 +313,7 @@ const MenuPizza = () => {
         <StyledFirstRowWidth>{pizza.id}. {pizza.name}</StyledFirstRowWidth>
         <StyledSecondRowPriceOrImage>
           <div className="standard-price">{pizza.price}</div>
-          
+          <div className="family-price">{pizza.price_family}</div>
         </StyledSecondRowPriceOrImage>
       </StyledShowVertical>
 
@@ -320,7 +329,7 @@ const MenuPizza = () => {
         <StyledFirstRowWidth>{pizza.id}. {pizza.name}</StyledFirstRowWidth>
         <StyledSecondRowPriceOrImage>
           <div className="standard-price">{pizza.price}</div>
-          
+          <div className="family-price">{pizza.price_family}</div>
         </StyledSecondRowPriceOrImage>
       </StyledShowVertical>
 
@@ -357,11 +366,34 @@ const MenuPizza = () => {
       
       <StyledGridMenu>
         <StyledRowColWrapper>
+          <StyledHeaderCardFirstRow>
+            {/* <div><b>PizzaHeader</b></div> */}
+            <StyledShowVertical >
+              <StyledFirstRowWidth>
+                {/* <div><b>PizzaHeader2</b></div> */}
+              </StyledFirstRowWidth>
+              <StyledSecondRowPriceOrImage>
+                <div className="standard-price"><img title="my-img" src={standard} alt="my-img" /></div>
+                <div className="standard-price"><img title="my-img" src={family} alt="my-img" /></div>
+              </StyledSecondRowPriceOrImage>
+            </StyledShowVertical>
+          </StyledHeaderCardFirstRow>
         {outputPizzasFirstColumn}
         </StyledRowColWrapper>
 
         <StyledRowColWrapper> 
-
+          <StyledHeaderCardSecondRow>
+              {/* <div><b>PizzaHeader</b></div> */}
+              <StyledShowVertical >
+                <StyledFirstRowWidth>
+                  {/* <div><b>PizzaHeader2</b></div> */}
+                </StyledFirstRowWidth>
+                <StyledSecondRowPriceOrImage>
+                <div className="standard-price"><img title="my-img" src={standard} alt="my-img" /></div>
+                  <div className="standard-price"><img title="my-img" src={family} alt="my-img" /></div>
+                </StyledSecondRowPriceOrImage>
+              </StyledShowVertical>
+            </StyledHeaderCardSecondRow> 
         {outputPizzasSecondColumn}
         </StyledRowColWrapper>
       </StyledGridMenu>

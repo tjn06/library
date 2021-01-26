@@ -3,8 +3,11 @@ import standard from '../assets/standard.svg';
 import family from '../assets/family.svg';
 import { Routes, Route } from "react-router-dom";
 
-import MenuPizza from './MenuPizza';
-import MenuKebab from './MenuKebab';
+import MenuPizza from './menucomponents/MenuPizza';
+import MenuKebab from './menucomponents/MenuKebab';
+import MenuSallad from './menucomponents/MenuSallad';
+import MenuDryck from './menucomponents/MenuDryck';
+import MenuOvrigt from './menucomponents/MenuOvrigt';
 
 import styled from "styled-components";
 
@@ -409,13 +412,13 @@ const Menu = () => {
           content = ( <MenuKebab /> )
           break;
       case SALLAD:
-          // content = ( <MenuSallad /> )
+           content = ( <MenuSallad /> )
           break;
       case DRYCK:
-        // content = ( <MenuDryck /> )
+        content = ( <MenuDryck /> )
           break;
       case OVRIGT:
-        // content = ( <MenuOvrigt /> )
+         content = ( <MenuOvrigt /> )
             break;
       default:
           content = ( <MenuPizza /> )

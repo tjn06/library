@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import standard from '../assets/standard.svg';
-import family from '../assets/family.svg';
+import standard from '../../assets/standard.svg';
+import family from '../../assets/family.svg';
 import { Routes, Route } from "react-router-dom";
 
 import styled from "styled-components";
@@ -25,20 +25,6 @@ const StyledRowColWrapper = styled.div`
     border: 2px solid rgb(0, 0, 0); */
 `;
 
-const StyledHeaderCardFirstRow = styled.div`
-  border-bottom: 2px solid rgb(0, 0, 0);
-  padding: 3px;
-`;
-
-const StyledHeaderCardSecondRow = styled.div`
-  border-bottom: 2px solid rgb(0, 0, 0);
-  padding: 3px;
-
-  @media only screen and (max-width: 804px) {
-    display: none;
-  }
-`;
-
 const StyledCard = styled.div` 
   /* border: 4px solid rgb(22, 189, 58); */
   height: auto;
@@ -52,12 +38,12 @@ const StyledShowVertical = styled.div`
 `;
 
 const StyledFirstRowWidth = styled.div`
-  width: 70%;
+  width: 85%;
   text-align: left;
 `;
 
 const StyledSecondRowPriceOrImage = styled.div`
-  width: 30%;
+  width: 15%;
   display: flex;
   justify-content: space-around;
 `;
@@ -195,35 +181,33 @@ const Input = styled.input`
 const pizzas = [
   {
     "id": 1,
-    "category": "Pizza",
-    "name": "Vesuvius",
+    "category": "Dryck",
+    "name": "Coca-Cola",
     "topping": [
-      "Tomat",
-      "Ost",
-      "Skinka"
+      "ISBERGSSALLAD",
+      "GURKA",
+      "COCKTAILTOMATER"
     ],
     "price": 79,
-    "price_family": 120,
     "rank": 3
   },
   {
     "id": 2,
-    "category": "Pizza",
-    "name": "Hawaii",
+    "category": "Dryck",
+    "name": "Fanta",
     "topping": [
-      "Basilika",
-      "Ost",
-      "Skinka",
-      "Ananas"
+      "ISBERGSSALLAD",
+      "GURKA",
+      "COCKTAILTOMATER",
+      "LÖK"
     ],
     "price": 79,
-    "price_family": 120,
     "rank": 1
   },
   {
     "id": 3,
-    "category": "Pizza",
-    "name": "Kebab",
+    "category": "Öl",
+    "name": "Heineken",
     "topping": [
       "Tomat",
       "MögelOst",
@@ -231,13 +215,12 @@ const pizzas = [
       "Ananas"
     ],
     "price": 79,
-    "price_family": 120,
     "rank": 1
   },
   {
     "id": 4,
-    "category": "Pizza",
-    "name": "Grodan",
+    "category": "Vin",
+    "name": "Foot of africa",
     "topping": [
       "Tomat",
       "Ost",
@@ -245,32 +228,26 @@ const pizzas = [
       "Ananas"
     ],
     "price": 79,
-    "price_family": 120,
     "rank": 1
   },
   {
     "id": 5,
-    "category": "Viking",
-    "name": "Special",
+    "category": "Vin",
+    "name": "Diablo",
     "topping": [
-      "Tomat",
-      "Basilika",
-      "Skinka",
-      "Ananas",
-      "Ost",
-      "Skinka",
-      "Ananas",
-      "Gräs"
+      "ISBERGSSALLAD",
+      "GURKA",
+      "COCKTAILTOMATER",
+      "LÖK"
     ],
     "price": 89,
-    "price_family": 120,
     "rank": 1
   }
 ]
 
 
 
-const MenuPizza = () => {
+const MenuDryck = () => {
   const [firstListPizzas, setFirstListPizzas] = useState();
   const [secondListPizzas, setSecondListPizzas] = useState();
   const [search, setSearch] = useState("");
@@ -313,7 +290,7 @@ const MenuPizza = () => {
         <StyledFirstRowWidth>{pizza.id}. {pizza.name}</StyledFirstRowWidth>
         <StyledSecondRowPriceOrImage>
           <div className="standard-price">{pizza.price}</div>
-          <div className="family-price">{pizza.price_family}</div>
+          
         </StyledSecondRowPriceOrImage>
       </StyledShowVertical>
 
@@ -329,7 +306,7 @@ const MenuPizza = () => {
         <StyledFirstRowWidth>{pizza.id}. {pizza.name}</StyledFirstRowWidth>
         <StyledSecondRowPriceOrImage>
           <div className="standard-price">{pizza.price}</div>
-          <div className="family-price">{pizza.price_family}</div>
+          
         </StyledSecondRowPriceOrImage>
       </StyledShowVertical>
 
@@ -343,62 +320,36 @@ const MenuPizza = () => {
 
   return (
   <div>
+    <StyledFlexColumn>
+      <StyledFlexCenterPos>
+        <StyledLetterSpacing>SÖKFILTER</StyledLetterSpacing>
+      </StyledFlexCenterPos>
+      <StyledFlexCenterPos>
+      <StyledTextSidesFilter>Namn</StyledTextSidesFilter>
+        <Input onChange={() => setToppingOrName(!toppingOrName)} type="checkbox" name="" />
+      <StyledTextSidesFilter>Ingrediens</StyledTextSidesFilter>
+      </StyledFlexCenterPos>
+    </StyledFlexColumn>
+    
+    <StyledSearchWidthPosition>
+      <StyledSearchPosFieldAndBtn>
+        <StyledSearchField onChange={(e) => setSearch(e.target.value)} type="search" placeholder={textToppingOrName} />
+        {/* <StyledSearchBtn type="submit">
+          <i className="fa fa-search"></i>
+        </StyledSearchBtn> */}
+      </StyledSearchPosFieldAndBtn>
+    </StyledSearchWidthPosition>
+    
+    <StyledGridMenu>
+      <StyledRowColWrapper>
+      {outputPizzasFirstColumn}
+      </StyledRowColWrapper>
 
-      <StyledFlexColumn>
-        <StyledFlexCenterPos>
-          <StyledLetterSpacing>SÖKFILTER</StyledLetterSpacing>
-        </StyledFlexCenterPos>
-        <StyledFlexCenterPos>
-        <StyledTextSidesFilter>Namn</StyledTextSidesFilter>
-          <Input onChange={() => setToppingOrName(!toppingOrName)} type="checkbox" name="" />
-        <StyledTextSidesFilter>Ingrediens</StyledTextSidesFilter>
-        </StyledFlexCenterPos>
-      </StyledFlexColumn>
-      
-      <StyledSearchWidthPosition>
-        <StyledSearchPosFieldAndBtn>
-          <StyledSearchField onChange={(e) => setSearch(e.target.value)} type="search" placeholder={textToppingOrName} />
-          {/* <StyledSearchBtn type="submit">
-            <i className="fa fa-search"></i>
-          </StyledSearchBtn> */}
-        </StyledSearchPosFieldAndBtn>
-      </StyledSearchWidthPosition>
-      
-      <StyledGridMenu>
-        <StyledRowColWrapper>
-          <StyledHeaderCardFirstRow>
-            {/* <div><b>PizzaHeader</b></div> */}
-            <StyledShowVertical >
-              <StyledFirstRowWidth>
-                {/* <div><b>PizzaHeader2</b></div> */}
-              </StyledFirstRowWidth>
-              <StyledSecondRowPriceOrImage>
-                <div className="standard-price"><img title="my-img" src={standard} alt="my-img" /></div>
-                <div className="standard-price"><img title="my-img" src={family} alt="my-img" /></div>
-              </StyledSecondRowPriceOrImage>
-            </StyledShowVertical>
-          </StyledHeaderCardFirstRow>
-        {outputPizzasFirstColumn}
-        </StyledRowColWrapper>
+      <StyledRowColWrapper> 
 
-        <StyledRowColWrapper> 
-          <StyledHeaderCardSecondRow>
-              {/* <div><b>PizzaHeader</b></div> */}
-              <StyledShowVertical >
-                <StyledFirstRowWidth>
-                  {/* <div><b>PizzaHeader2</b></div> */}
-                </StyledFirstRowWidth>
-                <StyledSecondRowPriceOrImage>
-                <div className="standard-price"><img title="my-img" src={standard} alt="my-img" /></div>
-                  <div className="standard-price"><img title="my-img" src={family} alt="my-img" /></div>
-                </StyledSecondRowPriceOrImage>
-              </StyledShowVertical>
-            </StyledHeaderCardSecondRow> 
-        {outputPizzasSecondColumn}
-        </StyledRowColWrapper>
-      </StyledGridMenu>
-
-  
+      {outputPizzasSecondColumn}
+      </StyledRowColWrapper>
+    </StyledGridMenu>
   </div>
     
   );
@@ -406,4 +357,4 @@ const MenuPizza = () => {
 
 
 
-export default MenuPizza;
+export default MenuDryck;

@@ -14,9 +14,31 @@ const StyledHeroBlock = styled.div`
   background-image: url(${image1});
   background-repeat: no-repeat;
   background-size: cover;
+  /* justify-content: center; */
+  /* align-items: center; */
+  color: black;
   
   @media (max-width: ${props => props.mediaQueryBreakPoint}) {
-    
+
+  }
+`;
+
+const StyledContent = styled.div`
+  display: flex;
+  width: 100%;
+  height: ${props => props.height};
+  /* height: ${props => props.height}; */
+  background: #b81313;
+  /* background-image: url(${image1});
+  background-repeat: no-repeat;
+  background-size: cover; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  color: black;
+  padding-top: 30%; 
+  
+  @media (max-width: ${props => props.mediaQueryBreakPoint}) {
+
   }
 `;
 
@@ -25,7 +47,7 @@ const StyledHeroBlock = styled.div`
 const HeroBlock = ({height, mediaQueryBreakPoint}, props) => (
   <StyledHeroBlock height={height} mediaQueryBreakPoint={mediaQueryBreakPoint} >
  
-       refrr
+    <StyledContent>refrr</StyledContent>
         
   </StyledHeroBlock>
 );

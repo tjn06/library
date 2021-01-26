@@ -6,7 +6,7 @@ import Home from './components/Home';
 import Menu from './components/Menu';
 import Faq from './components/Faq';
 // import HeaderNoScroll from './components/Headers/HeaderNoScroll';
-import ContactBtn from './components/ContactFixed';
+import ContactBtn from './components/iconcomponents/ContactBtn';
 import NotFound from './components/NotFound';
 import IndexHeader from './components/headers/IndexHeader';
 
