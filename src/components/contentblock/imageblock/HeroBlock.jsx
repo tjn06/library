@@ -35,7 +35,7 @@ const StyledContent = styled.div`
   /* justify-content: center; */
   /* align-items: center; */
   color: black;
-  padding-top: 30%; 
+  padding-top: 10%; 
   
   @media (max-width: ${props => props.mediaQueryBreakPoint}) {
 

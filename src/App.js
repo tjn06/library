@@ -6,7 +6,7 @@ import Home from './components/Home';
 import Menu from './components/Menu';
 import Faq from './components/Faq';
 // import HeaderNoScroll from './components/Headers/HeaderNoScroll';
-import ContactBtn from './components/iconcomponents/ContactBtn';
+import ContactFixed from './components/iconcomponents/ContactFixed';
 import NotFound from './components/NotFound';
 import IndexHeader from './components/headers/IndexHeader';
 
@@ -27,7 +27,7 @@ function App() {
   return (
     <Router>
       <IndexHeader />
-      <ContactBtn/>
+      <ContactFixed/>
       <TopMargin>
         <Routes>
           <Route path="/" element={<Home topMargin="1000px"/>} />
