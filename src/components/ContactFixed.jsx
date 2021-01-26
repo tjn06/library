@@ -14,6 +14,7 @@ const StyledPosSizeCssClasses = styled.div`
   position: fixed;
   bottom: 4px;
   right: -20px;
+  z-index: 1;
 
   .collapse-container {
     box-shadow: -2px 8px 10px -0px rgba(0, 0, 0, 0.253);

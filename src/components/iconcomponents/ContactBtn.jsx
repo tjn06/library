@@ -6,6 +6,7 @@ import styled from "styled-components";
   margin: -25px 0 0 -25px;
   width: 70px;
   height: 70px;
+  z-index: 1;
   
   .path {
     stroke: #000000;

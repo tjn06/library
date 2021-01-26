@@ -7,7 +7,7 @@ import LogoPizza from '../iconcomponents/LogoPizza';
 import HamburgerIconOpen from '../iconcomponents/HamburgerIconOpen'
 import HamburgerIconClosed from '../iconcomponents/HamburgerIconClosed'
 // Function components
-import useDocumentScrollThrottled from '../useDocumentScrollThrottled';
+import useDocumentScrollThrottled from '../helpers/useDocumentScrollThrottled';
 
 // Styled Components ---------------------------------------------------
 const StyledHeader = styled.header`

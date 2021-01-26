@@ -3,46 +3,8 @@ import standard from '../assets/standard.svg';
 import family from '../assets/family.svg';
 import { Routes, Route } from "react-router-dom";
 
-import MenuPizza from './MenuPizza';
-import MenuKebab from './MenuKebab';
-
 import styled from "styled-components";
 
-const StyledWrapperCentering = styled.div` 
-  display: flex;
-  justify-content: center;
-`;
-
-const StyledContentWidth = styled.div` 
-  display: flex;
-  flex-direction: column;
-  width: 900px; 
-  /* flex-basis: 1080px; */
-  /* margin: 0 auto; */
-  justify-content: center;
-`;
-
-const StyledCenter = styled.div` 
-display: flex;
-justify-content: space-evenly;
-padding-bottom: 10px;
-`;
-
-const StyledNavMenuItem= styled.p` 
-cursor: pointer;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-&.selected {
-  color: green;
-}
-&:hover {
-  color: green;
-  transition: all 0.1s ease;
-}
-`;
 
 const StyledGridMenu = styled.div`
   /* border: 1px solid rgb(24, 179, 44); */
@@ -81,7 +43,7 @@ const StyledCard = styled.div`
   /* border: 4px solid rgb(22, 189, 58); */
   height: auto;
   padding: 3px;
-  border-bottom: 1px dashed rgb(0, 0, 0);
+  border-bottom: 1px solid #d1d1d1;
 `;
 
 const StyledShowVertical = styled.div` 
@@ -106,6 +68,7 @@ const StyledSearchWidthPosition = styled.div`
   margin: auto;
   /* padding: 20px; */
   width: 300px;
+  padding: 0px 0px 10px 0px;
 
   @media only screen and (max-width: 300px) {
     padding: 0px 5px;
@@ -159,6 +122,7 @@ const StyledSearchField = styled.input`
 const StyledFlexColumn = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 6px 0px 10px 0px;
 `;
 
 const StyledFlexCenterPos = styled.div`
@@ -306,141 +270,81 @@ const pizzas = [
 
 
 
-const Menu = () => {
-  // const [firstListPizzas, setFirstListPizzas] = useState();
-  // const [secondListPizzas, setSecondListPizzas] = useState();
-  // const [search, setSearch] = useState("");
-  // const [filteredPizzas, setFilteredPizzas] = useState([]);
-  // const [toppingOrName, setToppingOrName] = useState(false);
-  // const [textToppingOrName, setTextToppingOrName] = useState("What are you looking for?");
+const MenuPizza = () => {
+  const [firstListPizzas, setFirstListPizzas] = useState();
+  const [secondListPizzas, setSecondListPizzas] = useState();
+  const [search, setSearch] = useState("");
+  const [filteredPizzas, setFilteredPizzas] = useState([]);
+  const [toppingOrName, setToppingOrName] = useState(false);
+  const [textToppingOrName, setTextToppingOrName] = useState("What are you looking for?");
 
-  // useEffect(() => {
-  // if(toppingOrName) {
-  //   setFilteredPizzas(
-  //     pizzas.filter((pizza) =>
-  //     pizza.topping.some(topping => topping.toLowerCase().includes(search.toLowerCase())
-  //     ))
-  //   );
-  // } else {
-  //   setFilteredPizzas(
-  //     pizzas.filter((pizza) =>
-  //     pizza.name.toLowerCase().includes(search.toLowerCase())
-  //     )
-  //   );
-  // }
+  useEffect(() => {
+  if(toppingOrName) {
+    setFilteredPizzas(
+      pizzas.filter((pizza) =>
+      pizza.topping.some(topping => topping.toLowerCase().includes(search.toLowerCase())
+      ))
+    );
+  } else {
+    setFilteredPizzas(
+      pizzas.filter((pizza) =>
+      pizza.name.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }
 
-  // }, [search, toppingOrName]);
+  }, [search, toppingOrName]);
 
 
-  // useEffect(() => {
-  //   toppingOrName ? setTextToppingOrName('Sök efter ingrediens') : setTextToppingOrName('Sök efter pizza')
-  // }, [toppingOrName]);
+  useEffect(() => {
+    toppingOrName ? setTextToppingOrName('Sök efter ingrediens') : setTextToppingOrName('Sök efter pizza')
+  }, [toppingOrName]);
 
-  // useEffect(() => {
-  // let number = (filteredPizzas.length);
-  //   setFirstListPizzas((number % 2) ? number/2 + .5 : number/2)
-  //   setSecondListPizzas(firstListPizzas + ((number % 2) ? number/2 - .5 : number/2))
-  // }, [firstListPizzas, secondListPizzas, filteredPizzas]);
+  useEffect(() => {
+  let number = (filteredPizzas.length);
+    setFirstListPizzas((number % 2) ? number/2 + .5 : number/2)
+    setSecondListPizzas(firstListPizzas + ((number % 2) ? number/2 - .5 : number/2))
+  }, [firstListPizzas, secondListPizzas, filteredPizzas]);
 
   
-  // const outputPizzasFirstColumn = filteredPizzas.slice(0,firstListPizzas).map((pizza) => (
-  //   <StyledCard key={pizza.id}>
-  //     <StyledShowVertical>
-  //       <StyledFirstRowWidth>{pizza.id}. {pizza.name}</StyledFirstRowWidth>
-  //       <StyledSecondRowPriceOrImage>
-  //         <div className="standard-price">{pizza.price}</div>
-  //         <div className="family-price">{pizza.price_family}</div>
-  //       </StyledSecondRowPriceOrImage>
-  //     </StyledShowVertical>
+  const outputPizzasFirstColumn = filteredPizzas.slice(0,firstListPizzas).map((pizza) => (
+    <StyledCard key={pizza.id}>
+      <StyledShowVertical>
+        <StyledFirstRowWidth>{pizza.id}. {pizza.name}</StyledFirstRowWidth>
+        <StyledSecondRowPriceOrImage>
+          <div className="standard-price">{pizza.price}</div>
+          <div className="family-price">{pizza.price_family}</div>
+        </StyledSecondRowPriceOrImage>
+      </StyledShowVertical>
 
-  //     <StyledFirstRowWidth>
-  //       {pizza.topping.map((item, index) => <span key={index}>{ (index ? ', ' : '') + item }</span> )}
-  //     </StyledFirstRowWidth>
-  //   </StyledCard>
-  // ));
+      <StyledFirstRowWidth>
+        {pizza.topping.map((item, index) => <span key={index}>{ (index ? ', ' : '') + item }</span> )}
+      </StyledFirstRowWidth>
+    </StyledCard>
+  ));
 
-  // const outputPizzasSecondColumn = filteredPizzas.slice(firstListPizzas,secondListPizzas).map((pizza) => (
-  //   <StyledCard key={pizza.id}>
-  //     <StyledShowVertical>
-  //       <StyledFirstRowWidth>{pizza.id}. {pizza.name}</StyledFirstRowWidth>
-  //       <StyledSecondRowPriceOrImage>
-  //         <div className="standard-price">{pizza.price}</div>
-  //         <div className="family-price">{pizza.price_family}</div>
-  //       </StyledSecondRowPriceOrImage>
-  //     </StyledShowVertical>
+  const outputPizzasSecondColumn = filteredPizzas.slice(firstListPizzas,secondListPizzas).map((pizza) => (
+    <StyledCard key={pizza.id}>
+      <StyledShowVertical>
+        <StyledFirstRowWidth>{pizza.id}. {pizza.name}</StyledFirstRowWidth>
+        <StyledSecondRowPriceOrImage>
+          <div className="standard-price">{pizza.price}</div>
+          <div className="family-price">{pizza.price_family}</div>
+        </StyledSecondRowPriceOrImage>
+      </StyledShowVertical>
 
-  //     <StyledFirstRowWidth>
-  //       {pizza.topping.map((item, index) => <span key={index}>{ (index ? ', ' : '') + item }</span> )}
-  //     </StyledFirstRowWidth>
-  //   </StyledCard>
-  // ));
-  const PIZZA = 'pizza', KEBAB = 'kebab', SALLAD = 'sallad', DRYCK = 'dryck', OVRIGT = 'ovrigt';
-
-  const [currentScreen, setCurrentScreen] = useState(PIZZA);
-  const [activeClass, setActiveClass] = useState(PIZZA);
-  
-  const pizzaScreen = () => { 
-    setCurrentScreen(PIZZA)
-    setActiveClass(PIZZA)
-  }
-  const kebabScreen = () => { 
-    setCurrentScreen(KEBAB)
-    setActiveClass(KEBAB)
-  }
-  const salladScreen = () => { 
-    setCurrentScreen(SALLAD)
-    setActiveClass(SALLAD)
-  }
-  const dryckScreen = () => { 
-    setCurrentScreen(DRYCK)
-    setActiveClass(DRYCK)
-  }
-  const ovrigtScreen = () => {
-    setCurrentScreen(OVRIGT)
-    setActiveClass(OVRIGT)
-  }
-
-  let content = null;
-  switch (currentScreen) {
-      case PIZZA:
-          content = ( <MenuPizza /> )
-          break;
-      case KEBAB:
-          content = ( <MenuKebab /> )
-          break;
-      case SALLAD:
-          // content = ( <MenuSallad /> )
-          break;
-      case DRYCK:
-        // content = ( <MenuDryck /> )
-          break;
-      case OVRIGT:
-        // content = ( <MenuOvrigt /> )
-            break;
-      default:
-          content = ( <MenuPizza /> )
-}
+      <StyledFirstRowWidth>
+        {pizza.topping.map((item, index) => <span key={index}>{ (index ? ', ' : '') + item }</span> )}
+      </StyledFirstRowWidth>
+    </StyledCard>
+  ));
   
 
 
   return (
-  <StyledWrapperCentering>
-    <StyledContentWidth>
+  <div>
 
-      <StyledCenter> 
-      <StyledNavMenuItem onClick={pizzaScreen} className={activeClass === PIZZA  ? 'selected' : ''}> PIZZA </StyledNavMenuItem>
-      <StyledNavMenuItem > | </StyledNavMenuItem>
-      <StyledNavMenuItem onClick={kebabScreen} className={activeClass === KEBAB  ? 'selected' : ''}> KEBAB/FALAFEL </StyledNavMenuItem>
-      <StyledNavMenuItem > | </StyledNavMenuItem>
-      <StyledNavMenuItem onClick={salladScreen} className={activeClass === SALLAD  ? 'selected' : ''}> SALLAD </StyledNavMenuItem>
-      <StyledNavMenuItem > | </StyledNavMenuItem>
-      <StyledNavMenuItem onClick={dryckScreen} className={activeClass === DRYCK  ? 'selected' : ''}> DRYCK </StyledNavMenuItem>
-      <StyledNavMenuItem > | </StyledNavMenuItem>
-      <StyledNavMenuItem onClick={ovrigtScreen} className={activeClass === OVRIGT  ? 'selected' : ''}> ÖVRIGT </StyledNavMenuItem>
-      </StyledCenter>
-
-
-      {/* <StyledFlexColumn>
+      <StyledFlexColumn>
         <StyledFlexCenterPos>
           <StyledLetterSpacing>SÖKFILTER</StyledLetterSpacing>
         </StyledFlexCenterPos>
@@ -453,21 +357,21 @@ const Menu = () => {
       
       <StyledSearchWidthPosition>
         <StyledSearchPosFieldAndBtn>
-          <StyledSearchField onChange={(e) => setSearch(e.target.value)} type="search" placeholder={textToppingOrName} /> */}
+          <StyledSearchField onChange={(e) => setSearch(e.target.value)} type="search" placeholder={textToppingOrName} />
           {/* <StyledSearchBtn type="submit">
             <i className="fa fa-search"></i>
           </StyledSearchBtn> */}
-        {/* </StyledSearchPosFieldAndBtn>
+        </StyledSearchPosFieldAndBtn>
       </StyledSearchWidthPosition>
       
       <StyledGridMenu>
         <StyledRowColWrapper>
-          <StyledHeaderCardFirstRow> */}
+          <StyledHeaderCardFirstRow>
             {/* <div><b>PizzaHeader</b></div> */}
-            {/* <StyledShowVertical >
-              <StyledFirstRowWidth> */}
+            <StyledShowVertical >
+              <StyledFirstRowWidth>
                 {/* <div><b>PizzaHeader2</b></div> */}
-              {/* </StyledFirstRowWidth>
+              </StyledFirstRowWidth>
               <StyledSecondRowPriceOrImage>
                 <div className="standard-price"><img title="my-img" src={standard} alt="my-img" /></div>
                 <div className="standard-price"><img title="my-img" src={family} alt="my-img" /></div>
@@ -475,15 +379,15 @@ const Menu = () => {
             </StyledShowVertical>
           </StyledHeaderCardFirstRow>
         {outputPizzasFirstColumn}
-        </StyledRowColWrapper> */}
+        </StyledRowColWrapper>
 
-        {/* <StyledRowColWrapper> 
-          <StyledHeaderCardSecondRow> */}
+        <StyledRowColWrapper> 
+          <StyledHeaderCardSecondRow>
               {/* <div><b>PizzaHeader</b></div> */}
-              {/* <StyledShowVertical >
-                <StyledFirstRowWidth> */}
+              <StyledShowVertical >
+                <StyledFirstRowWidth>
                   {/* <div><b>PizzaHeader2</b></div> */}
-                {/* </StyledFirstRowWidth>
+                </StyledFirstRowWidth>
                 <StyledSecondRowPriceOrImage>
                 <div className="standard-price"><img title="my-img" src={standard} alt="my-img" /></div>
                   <div className="standard-price"><img title="my-img" src={family} alt="my-img" /></div>
@@ -492,14 +396,14 @@ const Menu = () => {
             </StyledHeaderCardSecondRow> 
         {outputPizzasSecondColumn}
         </StyledRowColWrapper>
-      </StyledGridMenu> */}
-      {content}
-    </StyledContentWidth>
-  </StyledWrapperCentering>
+      </StyledGridMenu>
+
+  
+  </div>
     
   );
 };
 
 
 
-export default Menu;
+export default MenuPizza;

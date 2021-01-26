@@ -7,18 +7,37 @@ import LogoPizza from '../iconcomponents/LogoPizza';
 import HamburgerIconOpen from '../iconcomponents/HamburgerIconOpen'
 import HamburgerIconClosed from '../iconcomponents/HamburgerIconClosed'
 // Function components
-import useDocumentScrollThrottled from '../useDocumentScrollThrottled';
+import useDocumentScrollThrottled from '../helpers/useDocumentScrollThrottled';
 
+// Header on top
 import InfoHeaderOneRow from './InfoHeaderOneRow'
+import InfoHeaderTwoRow from './InfoHeaderTwoRow'
 
-const mediaQ = "686px";
-const mediaQNumber = 686;
+// InfoHeaderOneRow - Global values used for scolling behavior and witdth on InfoHeaderOneRow
+const placementOrHeightValue = "20px";
+const placementOrTranslateY = "-20px";
+const translateYHeader = "-142"
+// InfoHeaderOneRow end ---------------------------------------------------------------------
+
+// InfoHeaderTwoRow - Global values used for scolling behavior and witdth on InfoHeaderOneRow
+// const placementOrHeightValue = "40px";
+// const placementOrTranslateY = "-40px";
+// const translateYHeader = "-180"
+// InfoHeaderTwoRow end ---------------------------------------------------------------------
+
+
+const mediaQ = "686px"; // To all mediaquerys in styled components in this component
+const mediaQNumber = 686; // To function closeMobileMenuRouteClick number without px is required
+
+
+
+
 
 // Styled Components ---------------------------------------------------
 const StyledHeader = styled.header`
   font-family: 'Josefin Sans', sans-serif;
   position: fixed;
-  top: 20px;
+  top: ${placementOrHeightValue};
   left: 0;
   display: flex;
   align-items: center;
@@ -31,16 +50,17 @@ const StyledHeader = styled.header`
   transform: translateY(0);
   transition: transform 0.3s ease;
   /* border-bottom: 1px solid rgb(184, 184, 184); */
+  z-index: 1; //Needed if using paralax
   
 
   &.shadow {
   box-shadow: 0 9px 9px -9px rgba(0, 0, 0, 0.13);
   }
   &.hidden-info-header {
-  transform: translateY(-20px);
+  transform: translateY(${placementOrTranslateY});
   }  
   &.hidden {
-  transform: translateY(-142%);
+  transform: translateY(${translateYHeader}%);
   }
   &.transparent {
   opacity: 1;
@@ -50,7 +70,7 @@ const StyledHeader = styled.header`
     transition: all 0.1s ease;
     height: 50px;
     padding: 0px 10px;
-    transform: translateY(-20px);
+    transform: translateY(${placementOrTranslateY});
 
     /* &.shadow {
     box-shadow: none;
@@ -221,7 +241,7 @@ function Header() {
   return (
     <StyledHeader className={`${shadowStyle} ${hiddenStyle} ${hiddenInfoStyle} ${transparentStyle}`}>
 
-      <InfoHeaderOneRow />
+      <InfoHeaderOneRow topPosition={placementOrTranslateY} height={placementOrHeightValue}/>
       
       <StyledNav>
 

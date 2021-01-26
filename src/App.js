@@ -8,7 +8,7 @@ import Faq from './components/Faq';
 // import HeaderNoScroll from './components/Headers/HeaderNoScroll';
 import ContactBtn from './components/ContactFixed';
 import NotFound from './components/NotFound';
-import IndexHeader from './components/Headers/IndexHeader';
+import IndexHeader from './components/headers/IndexHeader';
 
 
 import styled from "styled-components";

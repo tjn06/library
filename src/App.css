@@ -2,9 +2,9 @@
   text-align: center;
 }
 
-.wrapper {
+/* .wrapper {
   padding-top: 100px;
-  }
+  } */
 
 /* .header {
   font-family: 'Josefin Sans', sans-serif;
@@ -166,6 +166,12 @@
   display: block;
 }
 
+.z {
+  z-index: -1;
+}
+.zz {
+  z-index: 1;
+}
 
 
 
