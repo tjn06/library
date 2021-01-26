@@ -42,7 +42,6 @@ const data = [
 const Faq = () => {
   const [showHide, setShowHide] = useState([]);
 
-  //const closeMobileMenu = () => setShowHide(!showHide);
   const toggleIsOpen = (index) =>{
     let toggle = [...showHide];
     toggle[index] = !toggle[index];
