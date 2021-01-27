@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import Header from './Header'
 import HeaderTwoRows from './HeaderTwoRows'
 import HeaderNoScroll from './HeaderNoScroll'
