@@ -53,14 +53,19 @@ const StyledHeadingText = styled.div`
   font-size: 3em;
   text-transform: uppercase;
   color: green;
+  padding-left: 3px;
   font-family: 'Franklin Gothic', sans-serif;
   font-weight: bold;
   letter-spacing: 5px;
+  border-left: 5px solid green;
 /* text-shadow: 3px 2px 1px rgba(104, 104, 104, 0.13); */
   @media (max-width: ${props => props.mediaQueryBreakPoint}) {
 
   }
 `;
+const Text = styled.p`
+  margin-left: 8px;
+`
 
 
 
@@ -78,8 +83,8 @@ const ParalaxHero = ({height, mediaQueryBreakPoint, scrollEffect}, props) => (
           <StyledTextContent>
             <StyledTextPaddingBox>
               <StyledHeadingText>15 års erfarenhet</StyledHeadingText>
-              <p>15 års erfarenhet som snickare 🛠<br></br>
-              För privatkunder, företag el. samarbeten med andra bolag inom branschen</p>
+              <Text>15 års erfarenhet som snickare 🛠<br></br>
+              För privatkunder, företag el. samarbeten med andra bolag inom branschen</Text>
             </StyledTextPaddingBox>
           </StyledTextContent>
           </StyledParalaxContent>

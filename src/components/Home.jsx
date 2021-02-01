@@ -7,6 +7,7 @@ import ParalaxHero from './contentblock/paralaxblock/ParalaxHero';
 import ParalaxBlockTwoTextBlock from './contentblock/paralaxblock/ParalaxBlockTwoTextBlock';
 import ParalaxBlockOneTextBlock from './contentblock/paralaxblock/ParalaxBlockOneTextBlock';
 import HeroBlock from './contentblock/imageblock/HeroBlock';
+import ThreeGrid from './grids/ThreeGrid'
 import MixedBlockTextImage from './contentblock/mixedblock/MixedBlockTextImage';
 import ImagesSlider from './galleries/ImagesSlider';
 import TextBlockCentered from './contentblock/textblock/TextBlockCentered';
@@ -29,6 +30,7 @@ const mediaQNumber = 686; // To function closeMobileMenuRouteClick number withou
 const Home = () => (
   <Div>
     <ParalaxHero height="500px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>
+    <ThreeGrid />
     <TextBlockCentered height="250px" mediaQueryBreakPoint={mediaQ} />
     <MixedBlockTextImage height="250px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>
     

@@ -8,12 +8,17 @@ import styled from 'styled-components';
 
 const Container = styled(MapContainer)`
     z-index: 0;
-    width: 400px;
+    max-width: 400px;
     height:400px;
     margin: auto;
     border: 3px solid #888888;
     border-radius: 10px;
     z-index: 0;
+
+    @media (max-width: 686px){
+      width: 300px;
+      height:300px;
+    }
 
     .leaflet-control-zoom-in{
       color: white;
@@ -46,12 +51,17 @@ const PopUP = styled(Popup)`
 const Info = styled.div`
   color: black;
 `
+const Hide = styled.div`
+  width: 100px;
+  height: 10px;
+  background-color: black;
+`
 
 export default function MapNav() {
 
   const teatIcon = new L.icon({
     iconUrl: markerIcon,
-    iconSize: [25, 25],
+    iconSize: [17, 25],
   })
 
  
@@ -64,7 +74,7 @@ export default function MapNav() {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
       <Marker position={[57.690301, 11.908471]} icon={teatIcon} >
-      
+      <Hide></Hide>
       <PopUP >
         <Info>
           <h1>Pizzeria Tobias</h1>

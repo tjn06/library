@@ -295,7 +295,7 @@ function Header() {
             </StyledListNavItem>
             <StyledListNavItem onClick={closeMobileMenuRouteClick}>
               <StyledLink 
-              to="/battlemode"
+              to="/find-us"
               activeClassName="active">
               HITTA OSS
               </StyledLink>

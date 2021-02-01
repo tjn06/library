@@ -17,12 +17,16 @@ opacity: 0.8;
  } 
 `
 const Styledcontent = styled.div`
-  width: 300px;
+  max-width: 300px;
   padding-top: 50px;
   margin: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-between; 
+  justify-content: space-between;
+
+   @media (max-width: 686px){
+   max-width: 200px; 
+   }
 `
 
 export default function Footer() {
