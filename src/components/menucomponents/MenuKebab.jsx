@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from "react";
-import standard from '../../assets/standard.svg';
-import family from '../../assets/family.svg';
-import { Routes, Route } from "react-router-dom";
-
 import styled from "styled-components";
 
 import FilterMenu from './FilterMenu';
@@ -52,19 +48,6 @@ const StyledSecondRowPriceOrImage = styled.div`
 `;
 
 //----------------------------------
-const StyledWrapperCentering = styled.div` 
-  display: flex;
-  justify-content: center;
-`;
-
-const StyledContentWidth = styled.div` 
-  display: flex;
-  flex-direction: column;
-  width: 900px; 
-  /* flex-basis: 1080px; */
-  /* margin: 0 auto; */
-  justify-content: center;
-`;
 
 const StyledCenter = styled.div` 
 display: flex;

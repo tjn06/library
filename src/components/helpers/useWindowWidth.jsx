@@ -1,6 +1,6 @@
 // import React from "react"
 import { useEffect, useState } from "react"
-import { throttle } from 'lodash';
+// import { throttle } from 'lodash';
 
 export default function useWindowWidth() {
   const [dimensions, setDimensions] = useState(window.innerWidth)
@@ -20,6 +20,6 @@ export default function useWindowWidth() {
 }
 
 
-//IMPORT THIS IN COMPONENT TO GET HORIZONTAL SCROLLPOSITION
-// import useParalax from './useParalax';
-// const isOnline = useParalax();
+//IMPORT THIS IN COMPONENT TO GET SCREENWIDTH
+// import useWindowWidth from './useWindowWidth';
+// const screenWidth = useWindowWidth();

@@ -50,11 +50,11 @@ const StyledHeader = styled.header`
   }
 `;
 
-const StyledNav = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-`;
+// const StyledNav = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-evenly;
+// `;
 
 const StyledLogoCentered = styled.div`
   width: 70px;

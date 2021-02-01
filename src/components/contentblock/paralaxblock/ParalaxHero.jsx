@@ -1,5 +1,6 @@
 import React from "react";
-import { Parallax, Background } from "react-parallax";
+import { Parallax } from "react-parallax";
+// import { Background } from "react-parallax";
 import styled from "styled-components";
 
 const StyledParalaxStyle = styled.div`
