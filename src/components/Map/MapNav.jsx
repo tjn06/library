@@ -12,6 +12,7 @@ const Container = styled(MapContainer)`
     margin: auto;
     border: 3px solid #888888;
     border-radius: 10px;
+    z-index: 0;
 
     .leaflet-control-zoom-in{
       color: white;

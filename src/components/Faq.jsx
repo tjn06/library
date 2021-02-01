@@ -5,18 +5,42 @@ import ArrowDownIcon from './iconcomponents/ArrowDownIcon';
 import ArrowUpIcon from './iconcomponents/ArrowUpIcon';
 import Test from './iconcomponents/Test'
 
+const StyledContainer = styled.div`
+  margin: 20px;
+  padding: 20px;
+  max-width: 500px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  text-align: center;
+`
+
 const StyledFaq = styled.div` 
   border-bottom: 1px solid #9c9a9a;
-  cursor: crosshair;
+  cursor: pointer;
   font-style: oblique;
-   
+  margin: 20px;  
 `
-;
-const StyledContainer = styled.div`
-  margin-left: 20px;
-  margin-right: 20px;
-  max-width: 500px;
+
+
+const StyledArrow = styled.div`
+  
+  
+
 `
+const StyledQuestion = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+`
+const Question = styled.p`
+  font-size: medium;
+  font-weight: 400;
+`
+const Answer = styled.p`
+  font-size: small;
+
+`
+
 const data = [
   {
     question:"Varför ska du välja just oss?",
@@ -56,9 +80,11 @@ const Faq = () => {
       <ul>
       {data.map((data, index) => (
       <StyledFaq onClick={() => toggleIsOpen(index)} key={index}>
-       <div> { showHide[index] ? <ArrowUpIcon fill="red"/> : <ArrowDownIcon fill="blue"/> } </div>
-      <p>{data.question}</p>
-      <Collapse isOpened={showHide[index]}><p>{data.answer}</p></Collapse>
+        <StyledQuestion>
+          <StyledArrow> { showHide[index] ? <ArrowUpIcon fill="grey"/> : <ArrowDownIcon fill="grey"/> } </StyledArrow>
+            <Question>{data.question}</Question>
+        </StyledQuestion>
+      <Collapse isOpened={showHide[index]}><Answer>{data.answer}</Answer></Collapse>
       </StyledFaq>
  ))}
  </ul>

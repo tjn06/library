@@ -30,7 +30,7 @@ const Home = () => (
     <StandardButton border={"2px solid white"} color={"red"} width={'10rem'} height={'2rem'} />
     <StandardButton color="black" radius="0px"/>
     <StandardButton  width="20rem"/>
-    <StandardButton  fontsize="10px" fontweight="300"/>
+    <StandardButton  fontsize="10px" fontweight="300" textcolor="pink" />
   </Div>
 );
 
