@@ -1,18 +1,7 @@
 import React from 'react';
-import styled from "styled-components";
 
 function HamburgerIconOpen ({color, mediaQueryBreakPoint, width, height}, props) {
 
-  // const StyledLogoSvg = styled.svg`
-  //   width: ${width};
-  //   height: ${height};
-  //   display: none;
-
-  // @media (max-width: ${mediaQueryBreakPoint}) {
-  //   display: block;
-  //   cursor: pointer;
-  // }
-  // `;
 
   return(
     <svg id="Lager_1" width= {width} height={height} data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.72 24.72" {...props}>
@@ -28,7 +17,7 @@ function HamburgerIconOpen ({color, mediaQueryBreakPoint, width, height}, props)
     <rect y="13.24" width="17.17" height="3.3" rx="1.63"/>
     <rect y="21.42" width="24.72" height="3.3" rx="1.63"/>
     </svg>
-    )
+  );
 };
 
 export default HamburgerIconOpen;

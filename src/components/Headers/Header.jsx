@@ -11,7 +11,7 @@ import useDocumentScrollThrottled from '../helpers/useDocumentScrollThrottled';
 
 // Header on top
 import InfoHeaderOneRow from './InfoHeaderOneRow'
-import InfoHeaderTwoRow from './InfoHeaderTwoRow'
+// import InfoHeaderTwoRow from './InfoHeaderTwoRow'
 
 // InfoHeaderOneRow - Global values used for scolling behavior and witdth on InfoHeaderOneRow
 const placementOrHeightValue = "20px";

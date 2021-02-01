@@ -9,7 +9,8 @@ const Button = styled.div`
   height:${props => props.height ?  props.height : '3rem'};
   display: flex;
   justify-content: center;
-  margin-left: 200px;//ska tas bort sen när den är klar
+  /* ska tas bort sen när den är klar */
+  margin-left: 200px;
   cursor: pointer;
   
 
@@ -18,10 +19,10 @@ const Button = styled.div`
   }
 `
 const ButtonText= styled.p`
- margin: auto;
- font-weight: ${props => props.fontweight ?  props.fontweight : '500'};
- font-size: ${props => props.fontsize ?  props.fontsize : '20px'};
- color:  ${props => props.textcolor ?  props.textcolor : 'white'};
+  margin: auto;
+  font-weight: ${props => props.fontweight ?  props.fontweight : '500'};
+  font-size: ${props => props.fontsize ?  props.fontsize : '20px'};
+  color:  ${props => props.textcolor ?  props.textcolor : 'white'};
 `
 
 function StandardButton({border, color, width, height, radius, fontweight, fontsize, textcolor}) {

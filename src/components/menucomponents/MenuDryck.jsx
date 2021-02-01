@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from "react";
-import standard from '../../assets/standard.svg';
-import family from '../../assets/family.svg';
-import { Routes, Route } from "react-router-dom";
-
 import styled from "styled-components";
 
 import FilterMenu from './FilterMenu';

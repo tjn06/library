@@ -1,19 +1,6 @@
 import React from 'react';
-import styled from "styled-components";
 
 function HamburgerIconClosed ({width, height}, props) {
-
-  // const StyledLogoSvg = styled.svg`
-  //   width: ${width};
-  //   height: ${height};
-  //   display: none;
-
-  // @media (max-width: ${mediaQueryBreakPoint}) {
-  //   display: block;
-  //   cursor: pointer;
-  // }
-  // `;
-
   return(
     <svg id="Lager_1" width= {width} height={height} data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.96 24.95" {...props}>
     <path d="M16.87,6.17l-1.3-2.55.58-.74,1.43,2.67Z" transform="translate(-0.04 -0.01)"/>
@@ -27,7 +14,7 @@ function HamburgerIconClosed ({width, height}, props) {
     <rect x="-2.87" y="10.12" width="22.23" height="3.3" rx="1.63" transform="translate(-6 9.57) rotate(-46.2)"/>
     <rect x="-4.43" y="10.85" width="33.86" height="3.3" rx="1.63" transform="translate(12.46 -5.19) rotate(45)"/>
     </svg>
-    )
+  );
 };
 
 export default HamburgerIconClosed;

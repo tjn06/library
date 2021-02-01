@@ -1,6 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import axios from "axios";
+// import axios from "axios";
 import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery";
 import styled from "styled-components";
