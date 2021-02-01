@@ -41,16 +41,17 @@ const StyledHeader = styled.header`
   left: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: center;
   width: 100%;
-  padding: 0px 25px;
+  padding: 0px 10px;
   height: 76px;
   background-color: #ffffff;;
   color: #333;
   transform: translateY(0);
   transition: transform 0.3s ease;
   /* border-bottom: 1px solid rgb(184, 184, 184); */
-  z-index: 1; //Needed if using paralax
+  z-index: 10; //Needed if using paralax
   
 
   &.shadow {
@@ -78,6 +79,16 @@ const StyledHeader = styled.header`
   }
 `;
 
+const StyledMaxWidthContent = styled.div`
+  display: flex;
+  flex-basis: 1024px;
+  align-items: center;
+  justify-content: space-between;
+  /* width: 100%; */
+  /* padding: 0px 25px; */
+  /* background-color: grey; */
+`;
+
 const StyledNav = styled.div`
   display: flex;
   align-items: center;
@@ -88,7 +99,6 @@ const StyledNav = styled.div`
 const StyledLink = styled(NavLink)`
   color: black;
   text-decoration: none;
-  padding-top: 2px;
 
   &.active {
   transition: all 0.1s ease;
@@ -156,7 +166,7 @@ const StyledListNavItem = styled.li`
 
 const StyledUlFaqDesktop = styled.ul`
   display: flex;
-  padding: 0px 5px;
+  /* padding: 0px 5px; */
   list-style-type: none;
   
 
@@ -166,7 +176,7 @@ const StyledUlFaqDesktop = styled.ul`
 `;
 
 const StyledListFaqItem = styled.li`
-  padding-right: 50px;
+  /* padding-right: 50px; */
   align-self: center;
   text-align: right;
   
@@ -182,6 +192,20 @@ const HamburgerIconsShowHide = styled.span`
   @media (max-width: ${mediaQ}) {
     display: flex;
     cursor: pointer;
+  }
+`;
+
+const StyledOpenTimes = styled.div`
+  display: none;
+  /* padding-top: 2px; */
+  margin-left: 35%;
+  font-size: 0.8em;
+  font-weight: bold;
+
+  @media (max-width: ${mediaQ}) {
+    display: flex;
+    cursor: pointer;
+
   }
 `;
 
@@ -241,71 +265,75 @@ function Header() {
   return (
     <StyledHeader className={`${shadowStyle} ${hiddenStyle} ${hiddenInfoStyle} ${transparentStyle}`}>
 
-      <InfoHeaderOneRow topPosition={placementOrTranslateY} height={placementOrHeightValue}/>
-      
-      <StyledNav>
 
-        
-        <LogoPizza color="green" 
-          width="70px" mobileWidth="35px"
-          height="70px" mobileHeight="35px"
-          marginRight="20px"
-          mediaQueryBreakPoint={mediaQ}
-        />
-      
-        <StyledNavOptions className={toggleHamburgerAndMenu ? "active" : ""}>
-          <StyledListNavItem onClick={closeMobileMenuRouteClick}>
-            <StyledLink className="no-class-help-centering"
-            to="/"
-            activeClassName="active"
-            end>
-            OM OSS
-            </StyledLink> 
-          </StyledListNavItem>
-          <StyledListNavItem onClick={closeMobileMenuRouteClick}>
-            <StyledLink 
-            to="/menu"
-            activeClassName="active">
-            MENY
+      <InfoHeaderOneRow topPosition={placementOrTranslateY} height={placementOrHeightValue}/>
+
+
+      <StyledMaxWidthContent>
+        <StyledNav>
+          <LogoPizza color="green" 
+            width="70px" mobileWidth="35px"
+            height="70px" mobileHeight="35px"
+            marginRight="20px"
+            mediaQueryBreakPoint={mediaQ}
+          />
+          <StyledNavOptions className={toggleHamburgerAndMenu ? "active" : ""}>
+            <StyledListNavItem onClick={closeMobileMenuRouteClick}>
+              <StyledLink
+              to="/"
+              activeClassName="active"
+              end>
+              OM OSS
+              </StyledLink> 
+            </StyledListNavItem>
+            <StyledListNavItem onClick={closeMobileMenuRouteClick}>
+              <StyledLink 
+              to="/menu"
+              activeClassName="active">
+              MENY
+              </StyledLink>
+            </StyledListNavItem>
+            <StyledListNavItem onClick={closeMobileMenuRouteClick}>
+              <StyledLink 
+              to="/battlemode"
+              activeClassName="active">
+              HITTA OSS
+              </StyledLink>
+            </StyledListNavItem>
+            <StyledListNavItem className="show-hide-when-mobile" onClick={closeMobileMenuRouteClick}>
+              <StyledLink
+              to="/faq"
+              activeClassName="active">
+              FAQ
             </StyledLink>
-          </StyledListNavItem>
-          <StyledListNavItem onClick={closeMobileMenuRouteClick}>
-            <StyledLink 
-            to="/battlemode"
-            activeClassName="active">
-            HITTA OSS
-            </StyledLink>
-          </StyledListNavItem>
-          <StyledListNavItem className="show-hide-when-mobile" onClick={closeMobileMenuRouteClick}>
+            </StyledListNavItem>
+          </StyledNavOptions>
+        </StyledNav>
+
+        <StyledOpenTimes>
+        ÖPPETIDER |
+        </StyledOpenTimes>
+
+        <HamburgerIconsShowHide onClick={toggleHamburgerClick}>
+          {toggleHamburgerAndMenu ? (
+            <HamburgerIconClosed
+            width="18px" height="18px" />) : (
+            <HamburgerIconOpen
+            width="18px" height="18px" />
+          )}
+        </HamburgerIconsShowHide>
+
+        <StyledUlFaqDesktop>
+          <StyledListFaqItem onClick={closeMobileMenuRouteClick}>
             <StyledLink
             to="/faq"
             activeClassName="active">
             FAQ
-          </StyledLink>
-          </StyledListNavItem>
-      </StyledNavOptions>
-    </StyledNav>
+            </StyledLink>
+          </StyledListFaqItem>
+        </StyledUlFaqDesktop>
 
-    <HamburgerIconsShowHide onClick={toggleHamburgerClick}>
-      {toggleHamburgerAndMenu ? (
-        <HamburgerIconClosed
-        width="18px" height="18px" />) : (
-        <HamburgerIconOpen
-        width="18px" height="18px" />
-      )}
-    </HamburgerIconsShowHide>
-
-
-    <StyledUlFaqDesktop>
-      <StyledListFaqItem onClick={closeMobileMenuRouteClick}>
-        <StyledLink
-        to="/faq"
-        activeClassName="active">
-        FAQ
-        </StyledLink>
-      </StyledListFaqItem>
-    </StyledUlFaqDesktop>
-
+      </StyledMaxWidthContent>
   </StyledHeader>
   );
 }

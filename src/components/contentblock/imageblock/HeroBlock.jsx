@@ -35,7 +35,8 @@ const StyledContent = styled.div`
   /* justify-content: center; */
   /* align-items: center; */
   color: black;
-  padding-top: 10%; 
+  padding-top: 200px;
+  padding-left: 20%; 
   
   @media (max-width: ${props => props.mediaQueryBreakPoint}) {
 
@@ -47,7 +48,7 @@ const StyledContent = styled.div`
 const HeroBlock = ({height, mediaQueryBreakPoint}, props) => (
   <StyledHeroBlock height={height} mediaQueryBreakPoint={mediaQueryBreakPoint} >
  
-    <StyledContent>refrr</StyledContent>
+    <StyledContent>Innehåll</StyledContent>
         
   </StyledHeroBlock>
 );

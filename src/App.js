@@ -15,7 +15,7 @@ import styled from "styled-components";
 
 
 const TopMargin = styled.div`
-  padding-top: 150px;
+  padding-top: 100px;
 
   @media (max-width: 648px) {
     padding-top: 50px;
@@ -26,7 +26,7 @@ const TopMargin = styled.div`
 function App() {
   return (
     <Router>
-      <IndexHeader />
+      <IndexHeader/>
       <ContactFixed/>
       <TopMargin>
         <Routes>

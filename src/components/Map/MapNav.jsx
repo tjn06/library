@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 
 const Container = styled(MapContainer)`
+    z-index: 0;
     width: 400px;
     height:400px;
     margin: auto;

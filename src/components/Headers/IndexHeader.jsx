@@ -6,8 +6,6 @@ import HeaderNoScroll from './HeaderNoScroll'
 import InfoHeaderOneRow from './InfoHeaderOneRow'
 
 
-
-
 function IndexHeader() {
 
 

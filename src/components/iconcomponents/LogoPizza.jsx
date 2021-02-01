@@ -9,6 +9,7 @@ margin-right: ${props => props.marginRight};
 @media (max-width: ${props => props.mediaQueryBreakPoint}) {
 width:  ${props => props.mobileWidth};
 height: ${props => props.mobileHeight};
+margin-right: 0px;
 }
 `;
 

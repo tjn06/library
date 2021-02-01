@@ -5,6 +5,9 @@ import { Routes, Route } from "react-router-dom";
 
 import styled from "styled-components";
 
+import FilterMenu from './FilterMenu';
+import SearchMenu from './SearchMenu';
+
 
 const StyledGridMenu = styled.div`
   /* border: 1px solid rgb(24, 179, 44); */
@@ -25,6 +28,18 @@ const StyledRowColWrapper = styled.div`
     border: 2px solid rgb(0, 0, 0); */
 `;
 
+const StyledCard = styled.div` 
+  /* border: 4px solid rgb(22, 189, 58); */
+  height: auto;
+  padding: 3px;
+  border-bottom: 1px solid #d1d1d1;
+`;
+
+const StyledShowVertical = styled.div` 
+  display: flex;
+  /* max-width: 100vw; */
+`;
+
 const StyledHeaderCardFirstRow = styled.div`
   border-bottom: 2px solid rgb(0, 0, 0);
   padding: 3px;
@@ -39,18 +54,6 @@ const StyledHeaderCardSecondRow = styled.div`
   }
 `;
 
-const StyledCard = styled.div` 
-  /* border: 4px solid rgb(22, 189, 58); */
-  height: auto;
-  padding: 3px;
-  border-bottom: 1px solid #d1d1d1;
-`;
-
-const StyledShowVertical = styled.div` 
-  display: flex;
-  /* max-width: 100vw; */
-`;
-
 const StyledFirstRowWidth = styled.div`
   width: 85%;
   text-align: left;
@@ -62,137 +65,34 @@ const StyledSecondRowPriceOrImage = styled.div`
   justify-content: space-around;
 `;
 
-//Searchbar
+//----------------------------------
 
-const StyledSearchWidthPosition = styled.div`
-  margin: auto;
-  /* padding: 20px; */
-  width: 300px;
-  padding: 0px 0px 10px 0px;
+const StyledCenter = styled.div` 
+display: flex;
+justify-content: center;
+padding-bottom: 10px;
+border-bottom: 1px solid #b4b4b4;
+`;
 
-  @media only screen and (max-width: 300px) {
-    padding: 0px 5px;
-    width: 100%;
-  }
+const StyledNavMenuItem= styled.p` 
+padding: 0px 25px 0px 25px;
+cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+&.selected {
+  color: green;
+}
+&:hover {
+  color: green;
+  transition: all 0.1s ease;
+}
 `;
 
 
-const StyledSearchPosFieldAndBtn = styled.div`
-  width: 100%;
-  position: relative;
-  display: flex;
-  height: 36px;
-`;
-
-const StyledSearchField = styled.input`
-  width: 100%;
-  border: 2px solid #c4c4c4;
-  /* border-right: none; */
-  padding: 5px;
-  height: 20px;
-  /* border-radius: 5px 0 0 5px; */
-  border-radius: 5px;
-  outline: none;
-  color: #c4c4c4;
-  height: 36px;
-
-  &:focus {
-    color: green;
-    border: 2px solid green;
-  }
-`;
-
-// const StyledSearchBtn = styled.button`
-//   width: 40px;
-//   height: 36px;
-//   border: 1px solid #c4c4c4;
-//   background:#c4c4c4;
-//   text-align: center;
-//   color: #fff;
-//   border-radius: 0 5px 5px 0;
-//   cursor: pointer;
-//   font-size: 20px;
-
-//   &:focus {
-//     background:green;
-//   }
-// `;
-
-
-const StyledFlexColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 6px 0px 10px 0px;
-`;
-
-const StyledFlexCenterPos = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-const StyledLetterSpacing = styled.div`
-  letter-spacing: 3px;
-  font-size: 0.6em;
-  color:  #8f8f8f;
-  /* font-weight: bold; */
-  line-height: 1.2em;
-`;
-
-const StyledTextSidesFilter = styled.div`
-  width: 3em;
-  padding: 0px 0px 0px 1px;
-  color: grey;
-  font-size: 0.6em;
-  line-height: 2.8em;
-  `;
-
-const Input = styled.input`
-  /* margin-top:10px; */
-  position:relative;
-  width:90px;
-  height:30px;
-  -webkit-appearance: none;
-  /* background: linear-gradient(0deg, #333, #000); */
-  background: #c9c8c8;
-  outline: none;
-  border-radius: 10px;
-  cursor: pointer;
-
-
-  &:checked {
-    /* background: linear-gradient(0deg, #dbdbdb, #dbdbdb); */
-    background:  #c9c8c8;
-
-  }
-
-  &:before {
-    content:'';
-    position:absolute;
-    top:0;
-    left:0;
-    width:50px;
-    height:30px;
-    /* background: linear-gradient(0deg, #000, #fafafa); */
-    background: green;
-    border-radius: 10px;
-    transform: scale(.98,.96);
-    transition:.5s;
-  }
-
-  &:checked:before {
-    left:40px;
-    background: #005500;
-  }
-
-  &:checked:after {
-    left:110px;
-  }
-`;
-
-
-
-
-const pizzas = [
+const thisPizzas = [
   {
     "id": 1,
     "category": "Pizza",
@@ -222,7 +122,7 @@ const pizzas = [
   },
   {
     "id": 3,
-    "category": "Pizza",
+    "category": "Lyx",
     "name": "Kebab",
     "topping": [
       "Tomat",
@@ -236,7 +136,7 @@ const pizzas = [
   },
   {
     "id": 4,
-    "category": "Pizza",
+    "category": "Inbakad",
     "name": "Grodan",
     "topping": [
       "Tomat",
@@ -250,7 +150,7 @@ const pizzas = [
   },
   {
     "id": 5,
-    "category": "Viking",
+    "category": "Inbakad",
     "name": "Special",
     "topping": [
       "Tomat",
@@ -271,43 +171,50 @@ const pizzas = [
 
 
 const MenuPizza = () => {
-  const [firstListPizzas, setFirstListPizzas] = useState();
-  const [secondListPizzas, setSecondListPizzas] = useState();
-  const [search, setSearch] = useState("");
-  const [filteredPizzas, setFilteredPizzas] = useState([]);
-  const [toppingOrName, setToppingOrName] = useState(false);
-  const [textToppingOrName, setTextToppingOrName] = useState("What are you looking for?");
+  const [firstListProducts, setFirstListProducts] = useState();
+  const [secondListProducts, setSecondListProducts] = useState();
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [filteredProductsCategory, setFilteredProductsCategory] = useState([]);
+  const [categoryFilter, setCategoryFilter] = useState('alla');
+  
+  
+  //---------
+  const [thisFilterVal, setThisFilterVal] = useState(false);
 
+
+  //---------
   useEffect(() => {
-  if(toppingOrName) {
-    setFilteredPizzas(
-      pizzas.filter((pizza) =>
-      pizza.topping.some(topping => topping.toLowerCase().includes(search.toLowerCase())
-      ))
-    );
-  } else {
-    setFilteredPizzas(
-      pizzas.filter((pizza) =>
-      pizza.name.toLowerCase().includes(search.toLowerCase())
-      )
-    );
+    let number = (filteredProductsCategory.length);
+      setFirstListProducts((number % 2) ? number/2 + .5 : number/2)
+      setSecondListProducts(firstListProducts + ((number % 2) ? number/2 - .5 : number/2))
+    }, [filteredProductsCategory, firstListProducts]);
+
+
+  function setThisFilterAndLabelName(firstOrSecondFilter) {
+    setThisFilterVal(firstOrSecondFilter)
   }
 
-  }, [search, toppingOrName]);
+  function setThisFilteredProducts(filteredProductsChild) {
+    setFilteredProducts(filteredProductsChild)
+  }
 
-
+  // Used filtered products and filter again on category
   useEffect(() => {
-    toppingOrName ? setTextToppingOrName('Sök efter ingrediens') : setTextToppingOrName('Sök efter pizza')
-  }, [toppingOrName]);
+      if (categoryFilter !== "alla") {
+        console.log('mu')
+        setFilteredProductsCategory(
+          filteredProducts.filter((product) =>
+          product.category.toLowerCase().includes(categoryFilter.toLowerCase())
+          )
+        );
+      } else {
+        setFilteredProductsCategory(filteredProducts)
+      }
+    }, [categoryFilter, filteredProducts]);
 
-  useEffect(() => {
-  let number = (filteredPizzas.length);
-    setFirstListPizzas((number % 2) ? number/2 + .5 : number/2)
-    setSecondListPizzas(firstListPizzas + ((number % 2) ? number/2 - .5 : number/2))
-  }, [firstListPizzas, secondListPizzas, filteredPizzas]);
 
   
-  const outputPizzasFirstColumn = filteredPizzas.slice(0,firstListPizzas).map((pizza) => (
+  const outputPizzasFirstColumn = filteredProductsCategory.slice(0,firstListProducts).map((pizza) => (
     <StyledCard key={pizza.id}>
       <StyledShowVertical>
         <StyledFirstRowWidth>{pizza.id}. {pizza.name}</StyledFirstRowWidth>
@@ -323,7 +230,7 @@ const MenuPizza = () => {
     </StyledCard>
   ));
 
-  const outputPizzasSecondColumn = filteredPizzas.slice(firstListPizzas,secondListPizzas).map((pizza) => (
+  const outputPizzasSecondColumn = filteredProductsCategory.slice(firstListProducts,secondListProducts).map((pizza) => (
     <StyledCard key={pizza.id}>
       <StyledShowVertical>
         <StyledFirstRowWidth>{pizza.id}. {pizza.name}</StyledFirstRowWidth>
@@ -343,62 +250,52 @@ const MenuPizza = () => {
 
   return (
   <div>
-
-      <StyledFlexColumn>
-        <StyledFlexCenterPos>
-          <StyledLetterSpacing>SÖKFILTER</StyledLetterSpacing>
-        </StyledFlexCenterPos>
-        <StyledFlexCenterPos>
-        <StyledTextSidesFilter>Namn</StyledTextSidesFilter>
-          <Input onChange={() => setToppingOrName(!toppingOrName)} type="checkbox" name="" />
-        <StyledTextSidesFilter>Ingrediens</StyledTextSidesFilter>
-        </StyledFlexCenterPos>
-      </StyledFlexColumn>
+    <FilterMenu setChildFilterAndLabelName={setThisFilterAndLabelName}
+    firstFilter="Namn" secondFilter="Ingrediens"/>
+    <SearchMenu setChildFilteredProducts={setThisFilteredProducts}
+    childFilterVal={thisFilterVal} products={thisPizzas}
+    searchFirstLabelText="Sök på alla pizzor" searchSecondLabelText="Sök på ingrediens"/>
       
-      <StyledSearchWidthPosition>
-        <StyledSearchPosFieldAndBtn>
-          <StyledSearchField onChange={(e) => setSearch(e.target.value)} type="search" placeholder={textToppingOrName} />
-          {/* <StyledSearchBtn type="submit">
-            <i className="fa fa-search"></i>
-          </StyledSearchBtn> */}
-        </StyledSearchPosFieldAndBtn>
-      </StyledSearchWidthPosition>
-      
-      <StyledGridMenu>
-        <StyledRowColWrapper>
-          <StyledHeaderCardFirstRow>
-            {/* <div><b>PizzaHeader</b></div> */}
-            <StyledShowVertical >
-              <StyledFirstRowWidth>
-                {/* <div><b>PizzaHeader2</b></div> */}
-              </StyledFirstRowWidth>
-              <StyledSecondRowPriceOrImage>
-                <div className="standard-price"><img title="my-img" src={standard} alt="my-img" /></div>
-                <div className="standard-price"><img title="my-img" src={family} alt="my-img" /></div>
-              </StyledSecondRowPriceOrImage>
-            </StyledShowVertical>
-          </StyledHeaderCardFirstRow>
-        {outputPizzasFirstColumn}
-        </StyledRowColWrapper>
+      <StyledCenter>
+      <StyledNavMenuItem onClick={() => setCategoryFilter('alla')} >Alla</StyledNavMenuItem> | 
+      <StyledNavMenuItem onClick={() => setCategoryFilter('Inbakad')} >Inbakad</StyledNavMenuItem> | 
+      <StyledNavMenuItem onClick={() => setCategoryFilter('Lyx')} >Lyxpizza</StyledNavMenuItem>
+      </StyledCenter>
+    
 
-        <StyledRowColWrapper> 
-          <StyledHeaderCardSecondRow>
-              {/* <div><b>PizzaHeader</b></div> */}
-              <StyledShowVertical >
-                <StyledFirstRowWidth>
-                  {/* <div><b>PizzaHeader2</b></div> */}
-                </StyledFirstRowWidth>
-                <StyledSecondRowPriceOrImage>
-                <div className="standard-price"><img title="my-img" src={standard} alt="my-img" /></div>
-                  <div className="standard-price"><img title="my-img" src={family} alt="my-img" /></div>
-                </StyledSecondRowPriceOrImage>
-              </StyledShowVertical>
-            </StyledHeaderCardSecondRow> 
-        {outputPizzasSecondColumn}
-        </StyledRowColWrapper>
-      </StyledGridMenu>
+    <StyledGridMenu>
+      <StyledRowColWrapper>
+        <StyledHeaderCardFirstRow>
+          {/* <div><b>PizzaHeader</b></div> */}
+          <StyledShowVertical >
+            <StyledFirstRowWidth>
+              {/* <div><b>PizzaHeader2</b></div> */}
+            </StyledFirstRowWidth>
+            <StyledSecondRowPriceOrImage>
+              <div className="standard-price"><img title="my-img" src={standard} alt="my-img" /></div>
+              <div className="standard-price"><img title="my-img" src={family} alt="my-img" /></div>
+            </StyledSecondRowPriceOrImage>
+          </StyledShowVertical>
+        </StyledHeaderCardFirstRow>
+      {outputPizzasFirstColumn}
+      </StyledRowColWrapper>
 
-  
+      <StyledRowColWrapper>
+        <StyledHeaderCardSecondRow>
+          {/* <div><b>PizzaHeader</b></div> */}
+          <StyledShowVertical >
+            <StyledFirstRowWidth>
+              {/* <div><b>PizzaHeader2</b></div> */}
+            </StyledFirstRowWidth>
+            <StyledSecondRowPriceOrImage>
+            <div className="standard-price"><img title="my-img" src={standard} alt="my-img" /></div>
+              <div className="standard-price"><img title="my-img" src={family} alt="my-img" /></div>
+            </StyledSecondRowPriceOrImage>
+          </StyledShowVertical>
+        </StyledHeaderCardSecondRow> 
+      {outputPizzasSecondColumn}
+      </StyledRowColWrapper>
+    </StyledGridMenu>
   </div>
     
   );
