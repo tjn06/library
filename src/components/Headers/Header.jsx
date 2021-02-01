@@ -231,7 +231,7 @@ function Header() {
     // 
     const isFromTop = currentScrollTop > 300;
     
-    console.log(currentScrollTop)
+    
     setshowHeaderShadow(currentScrollTop > 2);
     setTranparentHeader(currentScrollTop > 2);
     setHideInfoHeader(currentScrollTop > 2);

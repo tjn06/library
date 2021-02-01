@@ -21,12 +21,13 @@ const ButtonText= styled.p`
  margin: auto;
  font-weight: ${props => props.fontweight ?  props.fontweight : '500'};
  font-size: ${props => props.fontsize ?  props.fontsize : '20px'};
+ color:  ${props => props.textcolor ?  props.textcolor : 'white'};
 `
 
-function StandardButton({border, color, width, height, radius, fontweight, fontsize}) {
+function StandardButton({border, color, width, height, radius, fontweight, fontsize, textcolor}) {
   return (
     <Button border={border} color={color} width={width} height={height} radius={radius} >
-      <ButtonText fontweight={fontweight} fontsize={fontsize}>BUTTON</ButtonText>
+      <ButtonText fontweight={fontweight} fontsize={fontsize} textcolor={textcolor}>BUTTON</ButtonText>
     </Button>
   )
 }

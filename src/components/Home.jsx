@@ -42,6 +42,7 @@ const Home = () => (
     <StandardButton color="black" radius="0px"/>
     <StandardButton  width="20rem"/>
     <StandardButton  fontsize="10px" fontweight="300"/> */}
+    <StandardButton  fontsize="10px" fontweight="300" textcolor="pink" />
   </Div>
 );
 

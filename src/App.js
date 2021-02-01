@@ -12,6 +12,7 @@ import IndexHeader from './components/headers/IndexHeader';
 
 
 import styled from "styled-components";
+import Footer from './components/footer/Footer';
 
 
 const TopMargin = styled.div`
@@ -38,7 +39,7 @@ function App() {
       </TopMargin>
       {/* <HeaderNoScroll/> */}
       <div>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/></div>
-      
+      <Footer />
     </Router>
   );
 }

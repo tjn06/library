@@ -1,5 +1,6 @@
 import React from "react";
 import MapNav from "./map/MapNav";
+import Form from "../components/contact/Form"
 
 const NotFound = () => {
   
@@ -8,6 +9,7 @@ const NotFound = () => {
     <div className='Content'>
       <h2 className="sub-headline">NotFound</h2>
       <MapNav />
+      <Form />
     </div>
   );
 };
