@@ -3,16 +3,10 @@ import React from "react";
 // import styled from "styled-components";
 
 import ParalaxHero from './contentblock/paralaxblock/ParalaxHero';
-<<<<<<< HEAD
-import ParalaxBlockTwoTextBlock from './contentblock/paralaxblock/ParalaxBlockTwoTextBlock';
-import ParalaxBlockOneTextBlock from './contentblock/paralaxblock/ParalaxBlockOneTextBlock';
-import HeroBlock from './contentblock/imageblock/HeroBlock';
+//import ParalaxBlockTwoTextBlock from './contentblock/paralaxblock/ParalaxBlockTwoTextBlock';
+//import ParalaxBlockOneTextBlock from './contentblock/paralaxblock/ParalaxBlockOneTextBlock';
+//import HeroBlock from './contentblock/imageblock/HeroBlock';
 import ThreeGrid from './grids/ThreeGrid'
-=======
-// import ParalaxBlockTwoTextBlock from './contentblock/paralaxblock/ParalaxBlockTwoTextBlock';
-// import ParalaxBlockOneTextBlock from './contentblock/paralaxblock/ParalaxBlockOneTextBlock';
-// import HeroBlock from './contentblock/imageblock/HeroBlock';
->>>>>>> 61cb35dd0ea0bbcc9eea72bff8fa2353be63030c
 import MixedBlockTextImage from './contentblock/mixedblock/MixedBlockTextImage';
 import ImagesSlider from './galleries/ImagesSlider';
 import TextBlockCentered from './contentblock/textblock/TextBlockCentered';
