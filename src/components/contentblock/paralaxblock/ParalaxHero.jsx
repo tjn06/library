@@ -1,11 +1,17 @@
 import React from "react";
-import { Parallax } from "react-parallax";
+import { Parallax, Background } from "react-parallax";
 // import { Background } from "react-parallax";
 import styled from "styled-components";
 
 const StyledParalaxStyle = styled.div`
   font-family: sans-serif;
   text-align: center;
+  
+`;
+
+const StyledParalaxComponent = styled(Parallax)`
+
+  
 `;
 
 const StyledParalaxHeight = styled.div`
@@ -25,7 +31,7 @@ const StyledMaxWidthContent = styled.div`
 `;
 
 const StyledParalaxContent = styled.div`
-  background: rgba(243, 243, 243, 0.671);
+  /* background: rgba(243, 243, 243, 0.671); */
   margin-left: 2vw;
   border-radius: 2px;
   @media (max-width: ${props => props.mediaQueryBreakPoint}) {
@@ -72,7 +78,8 @@ const image1 = "https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixi
 
 const ParalaxHero = ({height, mediaQueryBreakPoint, scrollEffect}, props) => (
   <StyledParalaxStyle>
-    <Parallax bgImage={image1} strength={scrollEffect}>
+    <Parallax bgImage={image1} strength={scrollEffect} bgImageStyle={{opacity: '.6',   webkitMask: 'linear-gradient(90deg, transparent 0%, #380A46 100%) 0% 0% no-repeat padding-box',
+          mask: 'linear-gradient(90deg, transparent 0%, #380A46 100%) 0% 0% no-repeat padding-box' }}>
       <StyledParalaxHeight height={height}>
         <StyledMaxWidthContent>
           <StyledParalaxContent mediaQueryBreakPoint={mediaQueryBreakPoint}>

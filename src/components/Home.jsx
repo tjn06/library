@@ -4,7 +4,7 @@ import React from "react";
 
 import ParalaxHero from './contentblock/paralaxblock/ParalaxHero';
 // import ParalaxBlockTwoTextBlock from './contentblock/paralaxblock/ParalaxBlockTwoTextBlock';
-// import ParalaxBlockOneTextBlock from './contentblock/paralaxblock/ParalaxBlockOneTextBlock';
+import ParalaxBlockOneTextBlock from './contentblock/paralaxblock/ParalaxBlockOneTextBlock';
 // import HeroBlock from './contentblock/imageblock/HeroBlock';
 import MixedBlockTextImage from './contentblock/mixedblock/MixedBlockTextImage';
 import ImagesSlider from './galleries/ImagesSlider';
@@ -27,15 +27,15 @@ const mediaQ = "686px"; // To all mediaquerys in styled components in this compo
 const Home = () => (
   <Div>
     <ParalaxHero height="500px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>
-    <TextBlockCentered height="250px" mediaQueryBreakPoint={mediaQ} />
+    <TextBlockCentered height="200px" mediaQueryBreakPoint={mediaQ} />
+    <ParalaxBlockOneTextBlock height="200px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/> 
     <MixedBlockTextImage height="250px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>
     
     <ImagesSlider/>
     {/* <ImageBlockTwoTextBlock height="250px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/> */}
     {/* <ParalaxHero height="500px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>
     <HeroBlock height="500px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>
-    <ParalaxBlockTwoTextBlock height="200px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>
-    <ParalaxBlockOneTextBlock height="200px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/> */}
+    <ParalaxBlockTwoTextBlock height="200px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>*/}
     {/* <StandardButton border={"2px solid white"} color={"red"} width={'10rem'} height={'2rem'} />
     <StandardButton color="black" radius="0px"/>
     <StandardButton  width="20rem"/>

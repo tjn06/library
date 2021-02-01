@@ -4,35 +4,30 @@ import styled from "styled-components";
 const image1 = "https://picsum.photos/800/600";
 
 const StyledBlock = styled.div`
+/* border: 1px solid #e24343; */
   display: flex;
   width: 100%;
-  background: #d6d6d6;
+  background: #eeeeee;
+  height: ${props => props.height};
   /* background-image: url(${image1}); */
   /* background-repeat: no-repeat;
   background-size: cover; */
-  /* justify-content: center; */
-  /* align-items: center; */
+  justify-content: center;
   color: black;
-  
+
   @media (max-width: ${props => props.mediaQueryBreakPoint}) {
     flex-direction: column;
+    height: 500px;
   }
 `;
 
 const StyledContent = styled.div`
-  display: flex;
-  width: 100%;
-  height: ${props => props.height};
+  /* border: 1px solid #e24343; */
+  /* background: #ffffff; */
   /* height: ${props => props.height}; */
-  background: #ffffff;
-  /* border: 1px solid black; */
-  /* background-image: url(${image1});
-  background-repeat: no-repeat;
-  background-size: cover; */
-  /* justify-content: center; */
-  /* align-items: center; */
+  display: flex;
+  flex-basis: 512px;
   color: black;
-  /* justify-content: space-evenly; */
   align-items: center;
   padding: 20px;
   justify-content: flex-end;
@@ -40,34 +35,37 @@ const StyledContent = styled.div`
     justify-content: flex-start;
 }
   
-  
   @media (max-width: ${props => props.mediaQueryBreakPoint}) {
+    flex-basis: none;
     padding: 5px;
     justify-content: center;
   }
 `;
 
 const StyledTextBlock = styled.div`
-  /* display: flex; */
-  background: #a18d8d;
-  /* border: 1px solid black; */
-  width: 100%;
+  /* border: 1px solid #d501ff; */
+  /* background: #ffffff; */
   height: 100%;
-  flex-basis: 600px;
-  align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
   
   @media (max-width: ${props => props.mediaQueryBreakPoint}) {
+    align-items: center;
   }
 `;
 
 const StyledImageBlock = styled.div`
+  /* border: 1px solid #5348f0; */
+  /* flex-basis: 600px; */
+  /* background: #a18d8d; */
   display: flex;
-  background: #a18d8d;
-  /* border: 1px solid black; */
+  width: 100%;
   background-image: url(${image1});
   background-repeat: no-repeat;
   background-size: cover;
-  flex-basis: 600px;
   height: 100%;
   justify-self: end;
   @media (max-width: ${props => props.mediaQueryBreakPoint}) {
@@ -95,11 +93,15 @@ const ImageBlockTwoTextBlock = ({height, mediaQueryBreakPoint}, props) => (
         <StyledImageBlock>Backgroundimage</StyledImageBlock>
       </StyledContent>
       <StyledContent height={height} mediaQueryBreakPoint={mediaQueryBreakPoint}>
-        <StyledTextBlock>
+        <StyledTextBlock height={height} mediaQueryBreakPoint={mediaQueryBreakPoint}>
           <StyledHeaderText>Rubrik</StyledHeaderText>
           <StyledContentText>
-          Text..Text.Text<br/>Text..Text..Text<br/>
-          Text..Text.Text<br/>Text..Text..Text<br/></StyledContentText>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+          when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+          It has survived not only five centuries, but also the leap into electronic typesetting, 
+          remaining essentially unchanged.
+          </StyledContentText>
         </StyledTextBlock>
       </StyledContent>
 

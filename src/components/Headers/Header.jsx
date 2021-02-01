@@ -35,7 +35,7 @@ const mediaQNumber = 686; // To function closeMobileMenuRouteClick number withou
 
 // Styled Components ---------------------------------------------------
 const StyledHeader = styled.header`
-  font-family: 'Josefin Sans', sans-serif;
+  /* font-family: 'Cantarell'; */
   position: fixed;
   top: ${placementOrHeightValue};
   left: 0;

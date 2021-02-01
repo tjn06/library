@@ -10,7 +10,7 @@ const Button = styled.div`
   display: flex;
   justify-content: center;
   /* ska tas bort sen när den är klar */
-  margin-left: 200px;
+  /* margin-left: 200px; */
   cursor: pointer;
   
 
