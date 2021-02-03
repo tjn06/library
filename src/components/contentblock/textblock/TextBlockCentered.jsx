@@ -4,17 +4,17 @@ import styled from "styled-components";
 const StyledBlock = styled.div`
   align-items: center;
   display: flex;
-  height: ${props => props.height};
+  min-height: ${props => props.height};
   background: #f5f5f5;
   justify-content: center;
   color: black;
   text-align: center;
+  padding: 20px 5px;
   
   @media (max-width: ${props => props.mediaQueryBreakPoint}) {
-
+    min-height: unset;
   }
 `;
-
 
 
 const StyledContent = styled.div`
@@ -22,7 +22,7 @@ const StyledContent = styled.div`
 flex-basis: 1024px;
   
   @media (max-width: ${props => props.mediaQueryBreakPoint}) {
-  
+    flex-basis: unset;
   }
 `;
 

@@ -7,30 +7,41 @@ import useWindowWidth from '../helpers/useWindowWidth';
 
 
 const StyledInfoHeader = styled.div`
-  font-family: 'Josefin Sans', sans-serif;
+  /* font-family: 'Josefin Sans', sans-serif; */
   position: fixed;
   top: ${props => props.topPosition};
   left: 0;
+  font-size: 0.9em;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: ${props => props.height};
-  background-color: #004d2d;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #414141;
   padding: 0px 10px;
+  border-bottom: 1px solid #fafafa;
+ 
 `;
 
 const StyledInfoHeaderContentMaxWidth = styled.div`
   display: flex;
-  font-size: 0.75em;
+  /* font-size: 0.75em; */
   line-height: 1;
   /* padding: 0px 10px; */
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-basis: 1024px;
 `;
 
+
+
+const StyledPaddingRight = styled.div`
+  padding-right: 30px;
+    /* pointer-events: none; */
+`;
+
 const StyledNoSelect = styled.div`
+    padding-right: 30px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -55,7 +66,7 @@ const InfoHeaderOneRow = ({topPosition, height}) => {
 
 
   const rotateArrowValue = rotateArrow ? 'rotate(180)' : 'rotate(0)';
-  const fillArrowValue = rotateArrow ? 'white' : 'white';
+  const fillArrowValue = rotateArrow ? '#AFB880 ' : '#AFB880';
 
 
   function toggleRotateArrowStyles() {
@@ -77,9 +88,9 @@ const InfoHeaderOneRow = ({topPosition, height}) => {
   return (
     <StyledInfoHeader topPosition={topPosition} height={height}>
       <StyledInfoHeaderContentMaxWidth>
-        <div>Adress: Redbergsgatan 8</div>
-        <div>TEL 0704837563</div>
-        <StyledNoSelect onClick={() => toggleRotateArrowStyles()}>ÖPPETIDER <HeaderArrowDown
+        <StyledPaddingRight>ADRESS: Redbergsgatan 8</StyledPaddingRight>
+        <StyledPaddingRight>TEL 0704837563</StyledPaddingRight>
+        <StyledNoSelect onClick={() => toggleRotateArrowStyles()}>ÖPPETTIDER <HeaderArrowDown
           transform={rotateArrowValue} fill={fillArrowValue}/>
          <OpenHours showHideOpenHours={showHideOpenHours}/>
         </StyledNoSelect>

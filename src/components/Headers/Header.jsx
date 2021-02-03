@@ -35,7 +35,7 @@ const mediaQNumber = 686; // To function closeMobileMenuRouteClick number withou
 
 // Styled Components ---------------------------------------------------
 const StyledHeader = styled.header`
-  /* font-family: 'Cantarell'; */
+  font-family: 'Josefin Sans', sans-serif;
   position: fixed;
   top: ${placementOrHeightValue};
   left: 0;
@@ -46,12 +46,14 @@ const StyledHeader = styled.header`
   width: 100%;
   padding: 0px 10px;
   height: 76px;
-  background-color: #ffffff;;
-  color: #333;
+  background-color: #ffffff;
+  color: #353535;;
   transform: translateY(0);
   transition: transform 0.3s ease;
-  /* border-bottom: 1px solid rgb(184, 184, 184); */
+  font-size: 0.8em;
+  /* border-bottom: 1px solid rgb(255, 255, 255); */
   z-index: 10; //Needed if using paralax
+  box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.13);
   
 
   &.shadow {
@@ -92,21 +94,24 @@ const StyledMaxWidthContent = styled.div`
 const StyledNav = styled.div`
   display: flex;
   align-items: center;
+
+
   justify-content: space-evenly;
 `;
 
 
 const StyledLink = styled(NavLink)`
-  color: black;
+  color: #858585;
   text-decoration: none;
 
   &.active {
   transition: all 0.1s ease;
 	font-weight: bold;
-	color: green;
+  /* color: #070707; */
+  text-decoration: none;
   }
   :hover {
-    color: green;
+    color: #070707;
     transition: all 0.1s ease;
   } 
 `;
@@ -271,7 +276,7 @@ function Header() {
 
       <StyledMaxWidthContent>
         <StyledNav>
-          <LogoPizza color="green" 
+          <LogoPizza color="#412e2e" 
             width="70px" mobileWidth="35px"
             height="70px" mobileHeight="35px"
             marginRight="20px"
@@ -295,7 +300,7 @@ function Header() {
             </StyledListNavItem>
             <StyledListNavItem onClick={closeMobileMenuRouteClick}>
               <StyledLink 
-              to="/battlemode"
+              to="/find-us"
               activeClassName="active">
               HITTA OSS
               </StyledLink>
