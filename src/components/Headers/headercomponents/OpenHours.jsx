@@ -13,7 +13,7 @@ const StyledContentItems = styled.div`
 `;
 
 const OpenHours = ({ showHideOpenHours }) => {
-  if (!showHideOpenHours) return null;
+  // if (!showHideOpenHours) return null;
   return (
       <StyledContentItems className="collapse-container">Måndag 11-22<br/>Måndag 11-22 Måndag 11-22<br/>Måndag 11-22Måndag 11-22<br/>Måndag 11-22 </StyledContentItems>
   );

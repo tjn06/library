@@ -34,7 +34,7 @@ const image1 = "https://picsum.photos/800/600";
 
 const ParalaxHero = ({height, mediaQueryBreakPoint, scrollEffect}, props) => (
   <StyledParalaxStyle>
-    <Parallax bgImage={image1} strength={scrollEffect} bgImageStyle={{opacity: '.6',   webkitMask: 'linear-gradient(90deg, transparent 0%, #380A46 100%) 0% 0% no-repeat padding-box',
+    <Parallax bgImage={image1} strength={scrollEffect} bgImageStyle={{opacity: '.6',   WebkitMask: 'linear-gradient(90deg, transparent 0%, #380A46 100%) 0% 0% no-repeat padding-box',
           mask: 'linear-gradient(90deg, transparent 0%, #380A46 100%) 0% 0% no-repeat padding-box' }}>
       <StyledParalaxHeight height={height}>
         <StyledParalaxContent mediaQueryBreakPoint={mediaQueryBreakPoint}>HTML inside the parallax</StyledParalaxContent>

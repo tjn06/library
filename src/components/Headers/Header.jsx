@@ -124,11 +124,13 @@ const StyledNavOptions = styled.ul`
   list-style-type: none;
   
   @media (max-width: ${mediaQ}) {
+    
     display: flex;
     width: 100%;
+    height: calc(100vh);
     /* height: 350px; */
     position: absolute;
-    top: 50px;
+    top: 49px;
     left: 100%;
     opacity: 0;
     transition: all 0.2s ease;
@@ -220,6 +222,7 @@ const StyledOpenTimes = styled.div`
 function Header() {
   // Header states
   const [hideHeader, setHideHeader] = useState(false);
+  const [showHeaderOpenMenu, setShowHeaderOpenMenu] = useState(false);
   const [hideInfoHeader, setHideInfoHeader] = useState(false);
   const [showHeaderShadow, setshowHeaderShadow] = useState(false);
   const [tranparentHeader, setTranparentHeader] = useState(false);
@@ -243,7 +246,11 @@ function Header() {
     
 
     setTimeout(() => {
-      setHideHeader(isScrolledDown && isMinimumScrolled && isFromTop) ;
+      if(showHeaderOpenMenu) {
+        setHideHeader(false) ;
+      } else {
+        setHideHeader(isScrolledDown && isMinimumScrolled && isFromTop) ;
+      }
     }, TIMEOUT_DELAY);
   });
 
@@ -254,7 +261,11 @@ function Header() {
 
 
   const [toggleHamburgerAndMenu, setToggleHamburgerAndMenu] = useState(false);
-  const toggleHamburgerClick = () => setToggleHamburgerAndMenu(!toggleHamburgerAndMenu);
+
+  const toggleHamburgerClick = () => {
+    setToggleHamburgerAndMenu(!toggleHamburgerAndMenu);
+    setShowHeaderOpenMenu(!showHeaderOpenMenu)
+  }
 
   const closeMobileMenuRouteClick = () => {
     setToggleHamburgerAndMenu(false)

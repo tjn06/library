@@ -33,11 +33,12 @@ const ImagesSlider = () => {
 
   return (
   <StyledImageGallery>
-    <ImageGallery
+    <ImageGallery 
     items={images} 
     showPlayButton={false}
     showThumbnails={false}
     showBullets={true}
+    isFullscreen={true}
     />
     
   </StyledImageGallery>
