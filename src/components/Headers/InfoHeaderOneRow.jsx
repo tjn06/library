@@ -122,27 +122,17 @@ const InfoHeaderOneRow = ({topPosition, height}) => {
     <StyledInfoHeader topPosition={topPosition} height={height}>
       <StyledInfoHeaderContentMaxWidth>
 
-        {/* <StyledPaddingRight>ADRESS: Redbergsgatan 8 <HeaderArrowDown
-          transform={rotateArrowValue} fill={fillArrowValue}/>
-        <MapNav width={'400px'} height={'400px'} radius={'10px'}
-        border={"1px solid #888888"} shadow={"-3px 3px 10px -2px rgba(0, 0, 0, 0.253)"}/>
-        </StyledPaddingRight> */}
         <StyledPaddingRight>
-        <StyledNoSelect onClick={() => toggleRotateArrowMapStyles()}>ADRESS: Redbergsvägem 8 <HeaderArrowDown
-          transform={rotateArrowMapValue} fill={fillArrowMapValue}/>
-        </StyledNoSelect>
+          <StyledNoSelect onClick={() => toggleRotateArrowMapStyles()}>ADRESS: Redbergsvägem 8 <HeaderArrowDown
+            transform={rotateArrowMapValue} fill={fillArrowMapValue}/>
+          </StyledNoSelect>
           {showHideMap ? (
             <MapNav position={'fixed'} topPosition={'0px'} width={'400px'} height={'400px'} radius={'10px'}
             border={"1px solid #888888"} shadow={"-3px 3px 10px -2px rgba(0, 0, 0, 0.253)"}/>
             ) : (
             null
           )}
-          </StyledPaddingRight>
-
-        
-
-
-
+        </StyledPaddingRight>
 
         <StyledPaddingRight>
         <StyledNoSelect>
@@ -150,16 +140,15 @@ const InfoHeaderOneRow = ({topPosition, height}) => {
           </StyledNoSelect>
         </StyledPaddingRight>
 
-
         <StyledPaddingRight>
-        <StyledNoSelect onClick={() => toggleRotateArrowStyles()}>ÖPPETTIDER <HeaderArrowDown
-          transform={rotateArrowValue} fill={fillArrowValue}/>
-          {showHideOpenHours ? (
-            <OpenHours />
-            ) : (
-            null
-          )}
-        </StyledNoSelect>
+          <StyledNoSelect onClick={() => toggleRotateArrowStyles()}>ÖPPETTIDER <HeaderArrowDown
+            transform={rotateArrowValue} fill={fillArrowValue}/>
+            {showHideOpenHours ? (
+              <OpenHours />
+              ) : (
+              null
+            )}
+          </StyledNoSelect>
         </StyledPaddingRight>
 
         <StyledNoSelect>
