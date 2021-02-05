@@ -16,7 +16,7 @@ import Footer from './components/footer/Footer';
 
 
 const TopMargin = styled.div`
-  padding-top: 100px;
+  padding-top: 85px;
 
   @media (max-width: 648px) {
     padding-top: 50px;

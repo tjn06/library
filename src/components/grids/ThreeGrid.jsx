@@ -11,10 +11,11 @@ const StyledGrid = styled.div`
   display : flex;
   flex-direction: row;
   justify-content: space-between;
-  max-width: 800px;
+  max-width: 1024px;
   margin: auto;
   margin-top: 10px;
   font-family: 'Rokkitt', serif;
+  background-color: #FEFBF8;
 
   @media (max-width: 686px){
     flex-direction: column;
@@ -24,7 +25,7 @@ const StyledGrid = styled.div`
 `
 
 const StyledContent = styled.div`
-  background-color: #e9e9e9;
+  /* background-color: #e9e9e9; */
   cursor: pointer;
   border-radius: 5px;
   width: 250px;
@@ -34,7 +35,7 @@ const StyledContent = styled.div`
   justify-content: center;
   flex-direction: column;
   box-sizing: border-box;
-  box-shadow: 0px 0px 20px 0px rgba(37, 37, 37, 0.2);
+  /* box-shadow: 0px 0px 20px 0px rgba(37, 37, 37, 0.2); */
 
   :hover{
     transform: scale(1.1);
@@ -44,6 +45,18 @@ const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: black;
 `
+
+const StyledHeaderText = styled.h3`
+  text-decoration: none;
+  color: #353535;;
+`
+
+const StyledText = styled.p`
+  text-decoration: none;
+  color: #707070;
+`
+
+
 
 export default function ThreeGrid() {
   
@@ -55,25 +68,25 @@ export default function ThreeGrid() {
     <StyledGrid>
       <StyledLink to="/find-us" onClick={StopScroll}>
         <StyledContent >
-         <div><EatIcon color="green"/></div>
-         <h3>Äta här</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, rem?</p>
+         <div><EatIcon color="#C2B998"/></div>
+         <StyledHeaderText>Äta här</StyledHeaderText>
+          <StyledText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, rem?</StyledText>
         </StyledContent>
       </StyledLink>
 
     <StyledLink to="/faq" onClick={StopScroll}>
       <StyledContent>
-        <div><OpenIcon color="green" /></div>
-        <h3>Öppetider</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, rem?</p>
+        <div><OpenIcon color="#C2B998" /></div>
+        <StyledHeaderText>Öppetider</StyledHeaderText>
+        <StyledText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, rem?</StyledText>
       </StyledContent>
     </StyledLink>
 
     <StyledLink to="/menu" onClick={StopScroll}>
       <StyledContent>
-        <div><RewardIcon color="green" /></div>
-        <h3>Prisbelönt</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, rem?</p>
+        <div><RewardIcon color="#C2B998" /></div>
+        <StyledHeaderText>Prisbelönt</StyledHeaderText>
+        <StyledText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, rem?</StyledText>
       </StyledContent>
    </StyledLink>
     </StyledGrid>
