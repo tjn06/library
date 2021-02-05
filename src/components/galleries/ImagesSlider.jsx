@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 // Styled Components ---------------------------------------------------
 const StyledImageGallery = styled.div`
-  max-width: 800px;
+  /* max-width: 800px; */
 
   @media (max-width: 648px) {
 

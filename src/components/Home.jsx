@@ -19,12 +19,14 @@ import MixedBlockTextSlider from './contentblock/mixedblock/MixedBlockTextSlider
 import MixedBlockOrderTextImgElement from './contentblock/mixedblock/MixedBlockOrderTextImgElement';
 import MixedBlockOrderImgElementText from './contentblock/mixedblock/MixedBlockOrderImgElementText';
 
-import ImagesSlider from './galleries/ImagesSlider';
+// import ImagesSlider from './galleries/ImagesSlider';
 import GridGalleryImages from './galleries/GridGalleryImages';
 import TextBlockCentered from './contentblock/textblock/TextBlockCentered';
 
 import styled from "styled-components";
 import StandardButton from './buttons/StandardButton'
+
+import BlockImageGallerySlider from './galleries/BlockImageGallerySlider';
 
 // import HeaderTwoRows from './HeaderTwoRows';
 
@@ -51,7 +53,8 @@ const Home = () => (
     <MixedBlockOrderTextImage height="250px" mediaQueryBreakPoint={mediaQ} />
     <MixedBlockOrderImageText height="250px" mediaQueryBreakPoint={mediaQ} />
 
-    <ImagesSlider/>
+    {/* <ImagesSlider/> */}
+
     <ImageBlockTwoTextBlock height="250px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>
     <ParalaxHero height="500px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>
     <HeroBlock height="500px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>
@@ -62,6 +65,7 @@ const Home = () => (
     <StandardButton  fontsize="10px" fontweight="300"/>
     <StandardButton  fontsize="10px" fontweight="300" textcolor="pink" />
     <GridGalleryImages />
+    <BlockImageGallerySlider />
   </Div>
 );
 
