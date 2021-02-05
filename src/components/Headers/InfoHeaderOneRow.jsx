@@ -39,7 +39,9 @@ const StyledNoSelect = styled.div`
     cursor: pointer;
     /* pointer-events: none; */
 `;
-
+const StyledNUmber = styled.a`
+  text-decoration: none;
+`
 
 const InfoHeaderOneRow = ({topPosition, height}) => {
   const windowWidth = useWindowWidth();
@@ -78,7 +80,7 @@ const InfoHeaderOneRow = ({topPosition, height}) => {
     <StyledInfoHeader topPosition={topPosition} height={height}>
       <StyledInfoHeaderContentMaxWidth>
         <div>Adress: Redbergsgatan 8</div>
-        <div>TEL 0704837563</div>
+        <div>TELE: <StyledNUmber href="tel:0707-123456">0707-123456</StyledNUmber></div>
         <StyledNoSelect onClick={() => toggleRotateArrowStyles()}>ÖPPETIDER <HeaderArrowDown
           transform={rotateArrowValue} fill={fillArrowValue}/>
          <OpenHours showHideOpenHours={showHideOpenHours}/>

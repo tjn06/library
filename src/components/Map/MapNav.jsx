@@ -78,7 +78,7 @@ export default function MapNav() {
       <PopUP >
         <Info>
           <h1>Pizzeria Tobias</h1>
-          <span>Tele: <a href="0707-123456">0707-123456</a></span><br />
+          <span>Tele: <a href="tel:0707-123456">0707-123456</a></span><br />
           <span>Mejl: <a href="cool@gmail.se">cool@gmail.se</a></span><br />
           <span>Adress: Klippan 1e</span>
         </Info>
