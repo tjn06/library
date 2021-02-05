@@ -14,8 +14,8 @@ const StyledImageGallery = styled.div`
   }
 `;
 
-
 const ImagesSlider = () => {
+
   const images = [
     {
       original: 'https://picsum.photos/id/1018/1000/600/',
@@ -47,6 +47,9 @@ const ImagesSlider = () => {
 
 
 export default ImagesSlider;
+
+
+
 
 // **********************items: (required) Array of objects, see example above,
 // Available Properties
