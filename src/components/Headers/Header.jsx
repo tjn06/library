@@ -2,6 +2,11 @@
 import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+
+import OpenHoursIcon from '../../assets/infoheader/OpenHoursIcon';
+import PhoneIcon from '../../assets/infoheader/PhoneIcon';
+// import {ReactComponent as MapIcon} from '../../assets/infoheader/MapIcon.svg';
+// import {ReactComponent as PhoneIcon} from '../../assets/infoheader/PhoneIcon.svg';
 //Svg components
 import LogoPizza from '../iconcomponents/LogoPizza';
 import HamburgerIconOpen from '../iconcomponents/HamburgerIconOpen'
@@ -24,6 +29,8 @@ const translateYHeader = "-142"
 // const placementOrTranslateY = "-40px";
 // const translateYHeader = "-180"
 // InfoHeaderTwoRow end ---------------------------------------------------------------------
+
+
 
 
 const mediaQ = "686px"; // To all mediaquerys in styled components in this component
@@ -205,7 +212,7 @@ const HamburgerIconsShowHide = styled.span`
 const StyledOpenTimes = styled.div`
   display: none;
   /* padding-top: 2px; */
-  margin-left: 35%;
+  margin-left: 45%;
   font-size: 0.8em;
   font-weight: bold;
 
@@ -215,6 +222,23 @@ const StyledOpenTimes = styled.div`
 
   }
 `;
+
+const StyledBorderSidesFirst = styled.div`
+display: flex;
+padding: 4px;
+border-width: 0px 1px 0px 1px;
+border-color: #666666;
+border-style: solid;
+`;
+const StyledBorderSidesSecond = styled.div`
+display: flex;
+padding: 4px;
+border-width: 0px 1px 0px 0px;
+border-color: #666666;
+border-style: solid;
+`;
+
+
 
 // Styled Components end ---------------------------------------------------
 
@@ -326,9 +350,12 @@ function Header() {
           </StyledNavOptions>
         </StyledNav>
 
+       
         <StyledOpenTimes>
-        ÖPPETIDER |
+        <StyledBorderSidesFirst><OpenHoursIcon width="20" height="20"/></StyledBorderSidesFirst>
+        <a href="tel:+496170961709"><StyledBorderSidesSecond><PhoneIcon width="20" height="20"/></StyledBorderSidesSecond></a>
         </StyledOpenTimes>
+      
 
         <HamburgerIconsShowHide onClick={toggleHamburgerClick}>
           {toggleHamburgerAndMenu ? (
