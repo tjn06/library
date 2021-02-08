@@ -34,7 +34,7 @@ const StyledTextArea = styled.textarea`
 `;
 const StyledButton = styled.button`
   display: block;
-  background-color: #299641;
+  background-color: #bbbbbb;
   color: #fff;
   font-size: 0.9rem;
   border: 0;
@@ -49,7 +49,7 @@ const StyledButton = styled.button`
 
 
 const StyledError = styled.span`
-  color: #299641;
+  color: #a3bb9a;
   font-weight: 500;
   
 `;

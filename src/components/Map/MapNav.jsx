@@ -36,34 +36,36 @@ const Container = styled(MapContainer)`
 
     .leaflet-control-zoom-in{
       color: white;
-      background-color:green;
+      background-color:#b9b9b9;
       
 
       :hover{
-        color: green;
+        color: #b9b9b9;
         background-color: white;
       }
     }
 
     .leaflet-control-zoom-out{
       color: white;
-      background-color: green;
+      background-color: #b9b9b9;
 
       :hover{
-        color: green;
+        color:#b9b9b9;
         background-color: white;
       }
     }
 `
 const PopUP = styled(Popup)`
       .leaflet-popup-content-wrapper, .leaflet-popup-tip{
-        background-color: #bdbdbd;
-        border: 2px solid green;
+        background-color: #e9e9e9;
+        border: 2px solid #777777;
       }
  
 `
 const Info = styled.div`
   color: black;
+  font-family: 'Rokkitt', serif;
+  font-weight: 600;
 `
 const Hide = styled.div`
   width: 100px;
