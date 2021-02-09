@@ -6,6 +6,10 @@ import OpenHours from './headercomponents/OpenHours';
 import useWindowWidth from '../helpers/useWindowWidth';
 import useScrollPositionY from '../helpers/useScrollPositionY';
 
+import OpenHoursIcon from '../../assets/infoheader/OpenHoursIcon';
+import {ReactComponent as MapIcon} from '../../assets/infoheader/MapIcon.svg';
+import {ReactComponent as PhoneIcon} from '../../assets/infoheader/PhoneIcon.svg';
+
 
 
 const StyledInfoHeader = styled.div`
@@ -19,6 +23,7 @@ const StyledInfoHeader = styled.div`
   align-items: center;
   width: 100%;
   height: ${props => props.height};
+  /* height: 50px; */
   background-color: #ffffff;
   color: #414141;
   padding: 0px 10px;
@@ -29,21 +34,41 @@ const StyledInfoHeader = styled.div`
 const StyledInfoHeaderContentMaxWidth = styled.div`
   display: flex;
   /* font-size: 0.75em; */
-  line-height: 1;
+  /* line-height: 0; */
   /* padding: 0px 10px; */
   justify-content: flex-end;
   flex-basis: 1024px;
+  @media only screen and (max-width: 686px) {
+    display:none;
+  }
 `;
 
 
 
-const StyledPaddingRight = styled.div`
-  padding-right: 30px;
+const StyledPadding = styled.div`
+  padding-right: 42px;
+  :nth-child(3) {
+    padding-right: 24px;
+  }
+  :last-child {
+    padding-right: 0px;
+  }
+  /* padding-right: 30px; */
+  
     /* pointer-events: none; */
 `;
 
 const StyledNoSelect = styled.div`
     /* padding-right: 30px; */
+    /* text-align: center; */
+    /* background-color: lime; */
+    a[href^="tel"] {
+    color: inherit;
+    text-decoration: none;
+    }
+
+    
+    display: grid-row;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -51,6 +76,46 @@ const StyledNoSelect = styled.div`
     user-select: none;
     cursor: pointer;
     /* pointer-events: none; */
+`;
+
+const StyledNoSelectTel = styled.span`
+  .select-all-when-click {
+    -webkit-user-select: all;  /* Chrome 49+ */
+    -moz-user-select: all;     /* Firefox 43+ */
+    -ms-user-select: all;      /* No support yet */
+    user-select: all;          /* Likely future */   
+  }
+
+  .select-text-disabled {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+  }
+`;
+
+const StyledTel = styled.div`
+    /* padding-right: 30px; */
+    /* text-align: center; */
+    /* background-color: lime; */
+    a[href^="tel"] {
+    color: inherit;
+    text-decoration: none;
+    }
+
+    
+    display: grid-row;
+ 
+    /* cursor: pointer; */
+    /* pointer-events: none; */
+`;
+
+const StyledPosition = styled.div`
+position: absolute;
+margin-left:-15px;
+margin-top: -1px;
 `;
 
 
@@ -117,13 +182,17 @@ const InfoHeaderOneRow = ({topPosition, height}) => {
 //   setShowHideshowHideOpenHours(false)
 // }
 
+function closeThisOpenHours (falseFromChild) {
+  setShowHideshowHideOpenHours(falseFromChild)
+}
+
 
   return (
     <StyledInfoHeader topPosition={topPosition} height={height}>
       <StyledInfoHeaderContentMaxWidth>
 
-        <StyledPaddingRight>
-          <StyledNoSelect onClick={() => toggleRotateArrowMapStyles()}>ADRESS: Redbergsvägem 8 <HeaderArrowDown
+        <StyledPadding>
+          <StyledNoSelect onClick={() => toggleRotateArrowMapStyles()}><StyledPosition><MapIcon /></StyledPosition>ADRESS: Redbergsvägem 8 <HeaderArrowDown
             transform={rotateArrowMapValue} fill={fillArrowMapValue}/>
           </StyledNoSelect>
           {showHideMap ? (
@@ -132,28 +201,31 @@ const InfoHeaderOneRow = ({topPosition, height}) => {
             ) : (
             null
           )}
-        </StyledPaddingRight>
+        </StyledPadding>
 
-        <StyledPaddingRight>
-        <StyledNoSelect>
-          TEL 0704837563
-          </StyledNoSelect>
-        </StyledPaddingRight>
-
-        <StyledPaddingRight>
-          <StyledNoSelect onClick={() => toggleRotateArrowStyles()}>ÖPPETTIDER <HeaderArrowDown
+        <StyledPadding>
+          <StyledNoSelect onClick={() => toggleRotateArrowStyles()}><StyledPosition><OpenHoursIcon width="12" height="12"/></StyledPosition>ÖPPETTIDER <HeaderArrowDown
             transform={rotateArrowValue} fill={fillArrowValue}/>
+            </StyledNoSelect>
             {showHideOpenHours ? (
-              <OpenHours />
+              <OpenHours closeOpenHoursChild={closeThisOpenHours} topPosition="0px" marginLeft="-35px" />
               ) : (
               null
             )}
-          </StyledNoSelect>
-        </StyledPaddingRight>
+        </StyledPadding>
 
+        <StyledPadding>
+        <StyledTel> <StyledPosition><a href="tel:+496170961709"><PhoneIcon /></a></StyledPosition>
+          <StyledNoSelectTel><span className="select-text-disabled"> TEL:</span> <span className="select-all-when-click">0704837563</span></StyledNoSelectTel>
+          </StyledTel>
+        </StyledPadding>
+
+        {/* <StyledPadding>     
         <StyledNoSelect>
-          ÖVRIGT
+          ÖVRIGT red <HeaderArrowDown
+            transform={rotateArrowMapValue} fill={fillArrowMapValue}/>
         </StyledNoSelect>
+        </StyledPadding> */}
         
       </StyledInfoHeaderContentMaxWidth>
     </StyledInfoHeader>

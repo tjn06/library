@@ -73,7 +73,7 @@ const StyledHeadingText = styled.div`
   border-left: 5px solid #A84061;
 /* text-shadow: 3px 2px 1px rgba(104, 104, 104, 0.13); */
   @media (max-width: ${props => props.mediaQueryBreakPoint}) {
-
+    font-size: 1em;
   }
 `;
 const Text = styled.p`
