@@ -78,15 +78,22 @@ const StyledNoSelect = styled.div`
     /* pointer-events: none; */
 `;
 
-const StyledNoSelectTel = styled.div`
+const StyledNoSelectTel = styled.span`
+  .select-all-when-click {
+    -webkit-user-select: all;  /* Chrome 49+ */
+    -moz-user-select: all;     /* Firefox 43+ */
+    -ms-user-select: all;      /* No support yet */
+    user-select: all;          /* Likely future */   
+  }
 
+  .select-text-disabled {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    cursor: pointer;
-    /* pointer-events: none; */
+    pointer-events: none;
+  }
 `;
 
 const StyledTel = styled.div`
@@ -105,15 +112,8 @@ const StyledTel = styled.div`
     /* pointer-events: none; */
 `;
 
-
-// a[href^="tel"] {
-//   color: inherit; 
-//   text-decoration: none; 
-// }
-
 const StyledPosition = styled.div`
 position: absolute;
-/* z-index: 999; */
 margin-left:-15px;
 margin-top: -1px;
 `;
@@ -182,6 +182,10 @@ const InfoHeaderOneRow = ({topPosition, height}) => {
 //   setShowHideshowHideOpenHours(false)
 // }
 
+function closeThisOpenHours (falseFromChild) {
+  setShowHideshowHideOpenHours(falseFromChild)
+}
+
 
   return (
     <StyledInfoHeader topPosition={topPosition} height={height}>
@@ -200,21 +204,20 @@ const InfoHeaderOneRow = ({topPosition, height}) => {
         </StyledPadding>
 
         <StyledPadding>
-        <StyledTel> <StyledPosition><a href="tel:+496170961709"><PhoneIcon /></a></StyledPosition>
-          TEL: 0704837563 
-          </StyledTel>
-        </StyledPadding>
-        
-
-        <StyledPadding>
           <StyledNoSelect onClick={() => toggleRotateArrowStyles()}><StyledPosition><OpenHoursIcon width="12" height="12"/></StyledPosition>ÖPPETTIDER <HeaderArrowDown
             transform={rotateArrowValue} fill={fillArrowValue}/>
+            </StyledNoSelect>
             {showHideOpenHours ? (
-              <OpenHours />
+              <OpenHours closeOpenHoursChild={closeThisOpenHours} topPosition="0px" marginLeft="-35px" />
               ) : (
               null
             )}
-          </StyledNoSelect>
+        </StyledPadding>
+
+        <StyledPadding>
+        <StyledTel> <StyledPosition><a href="tel:+496170961709"><PhoneIcon /></a></StyledPosition>
+          <StyledNoSelectTel><span className="select-text-disabled"> TEL:</span> <span className="select-all-when-click">0704837563</span></StyledNoSelectTel>
+          </StyledTel>
         </StyledPadding>
 
         {/* <StyledPadding>     

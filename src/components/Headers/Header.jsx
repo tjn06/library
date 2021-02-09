@@ -5,6 +5,8 @@ import styled from "styled-components";
 
 import OpenHoursIcon from '../../assets/infoheader/OpenHoursIcon';
 import PhoneIcon from '../../assets/infoheader/PhoneIcon';
+
+import OpenHours from './headercomponents/OpenHours';
 // import {ReactComponent as MapIcon} from '../../assets/infoheader/MapIcon.svg';
 // import {ReactComponent as PhoneIcon} from '../../assets/infoheader/PhoneIcon.svg';
 //Svg components
@@ -209,16 +211,16 @@ const HamburgerIconsShowHide = styled.span`
   }
 `;
 
-const StyledOpenTimes = styled.div`
+const StyledIconsMobile = styled.div`
   display: none;
   /* padding-top: 2px; */
   margin-left: 45%;
   font-size: 0.8em;
-  font-weight: bold;
+  /* font-weight: bold; */
 
   @media (max-width: ${mediaQ}) {
     display: flex;
-    cursor: pointer;
+    /* cursor: pointer; */
 
   }
 `;
@@ -238,6 +240,14 @@ border-color: #666666;
 border-style: solid;
 `;
 
+const StyledOpenHoursIcon = styled(OpenHoursIcon)`
+cursor: pointer;
+`;
+
+const StyledPhoneIcon = styled(PhoneIcon)`
+cursor: pointer;
+`;
+
 
 
 // Styled Components end ---------------------------------------------------
@@ -250,6 +260,11 @@ function Header() {
   const [hideInfoHeader, setHideInfoHeader] = useState(false);
   const [showHeaderShadow, setshowHeaderShadow] = useState(false);
   const [tranparentHeader, setTranparentHeader] = useState(false);
+
+
+  const [showHideOpenHours, setShowHideshowHideOpenHours] = useState(false);
+
+  
 
   // Minimumscoll - Change header states if scrolling 80px up or down
   const MINIMUM_SCROLL = 80;
@@ -267,6 +282,10 @@ function Header() {
     setshowHeaderShadow(currentScrollTop > 2);
     setTranparentHeader(currentScrollTop > 2);
     setHideInfoHeader(currentScrollTop > 2);
+
+    if (isFromTop) {
+      setShowHideshowHideOpenHours(false)
+    }
     
 
     setTimeout(() => {
@@ -293,14 +312,18 @@ function Header() {
 
   const closeMobileMenuRouteClick = () => {
     setToggleHamburgerAndMenu(false)
-
     if(window.innerWidth < mediaQNumber) {
       window.scrollTo(0,0);
     } else {
       window.scrollTo(0,10);
     }
-
   }
+
+  function closeThisOpenHours (falseFromChild) {
+    setShowHideshowHideOpenHours(falseFromChild)
+  }
+
+
   
   return (
     <StyledHeader className={`${shadowStyle} ${hiddenStyle} ${hiddenInfoStyle} ${transparentStyle}`}>
@@ -351,10 +374,23 @@ function Header() {
         </StyledNav>
 
        
-        <StyledOpenTimes>
-        <StyledBorderSidesFirst><OpenHoursIcon width="20" height="20"/></StyledBorderSidesFirst>
-        <a href="tel:+496170961709"><StyledBorderSidesSecond><PhoneIcon width="20" height="20"/></StyledBorderSidesSecond></a>
-        </StyledOpenTimes>
+        <StyledIconsMobile>
+          <StyledBorderSidesFirst >
+            <StyledOpenHoursIcon onClick={() => setShowHideshowHideOpenHours(!showHideOpenHours)} width="20" height="20"/>
+            {/* <StyledClose /> */}
+            {showHideOpenHours ? (
+              <OpenHours closeOpenHoursChild={closeThisOpenHours} topPosition="51px" marginLeft="-93px" />
+              ) : (
+              null
+            )}
+          </StyledBorderSidesFirst>
+
+          <a href="tel:+496170961709">
+            <StyledBorderSidesSecond>
+              <StyledPhoneIcon width="20" height="20"/>
+            </StyledBorderSidesSecond>
+          </a>
+        </StyledIconsMobile>
       
 
         <HamburgerIconsShowHide onClick={toggleHamburgerClick}>

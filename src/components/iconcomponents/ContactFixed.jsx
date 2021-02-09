@@ -111,20 +111,24 @@ const ContactFixed = () => {
       <StyledReverseFlex>
         <ContactBtn childFuncShowHideContactContent={thisFuncShowHideContactContent} width="75px"/>
 
-        <Collapse isOpened={showHideContactContent} theme={{collapse: 'collapse-container', content: 'collapse-children'}}>
-
+        {showHideContactContent ? (
+          <div className="collapse-container">
+          <div className="collapse-children">
           {data.map((data, index) => (
           <StyledContentItems key={index}>
             <span className="select-text-disabled">{data.question}</span><br/>
             <span className="select-all-when-click">{data.answer}</span>
           </StyledContentItems>
           ))}
-
-        </Collapse>
+          </div>
+          </div>
+            ) : (
+            null
+          )}
 
       </StyledReverseFlex>
     </StyledPosSizeCssClasses>
-    
+    // collapse: 'collapse-container', content: 'collapse-children'
   );
 };
 
