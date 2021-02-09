@@ -3,7 +3,18 @@ import {Collapse} from 'react-collapse';
 import styled from "styled-components";
 import ArrowDownIcon from './iconcomponents/ArrowDownIcon';
 import ArrowUpIcon from './iconcomponents/ArrowUpIcon';
-import Test from './iconcomponents/Test'
+
+const StyledBlock = styled.div`
+  font-family: 'Rokkitt', serif;
+  display: flex;
+  justify-content: center;
+  background: #f5f5f5;
+  padding: 50px;
+
+  @media (max-width: 686px){
+    padding: 5px;
+  }
+`
 
 const StyledContainer = styled.div`
   margin: 20px;
@@ -11,7 +22,7 @@ const StyledContainer = styled.div`
   max-width: 500px;
   box-sizing: border-box;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  
 `
 
 const StyledFaq = styled.div` 
@@ -38,6 +49,7 @@ const Question = styled.p`
 `
 const Answer = styled.p`
   font-size: small;
+  margin-right: 40px;
 
 `
 
@@ -73,23 +85,23 @@ const Faq = () => {
   }
 
   return (
-    <StyledContainer>
-      <ArrowDownIcon fill="green"/>
-      <Test   left="green" center="black" right="yellow"/>
-      <h1>FRÅGOR OCH SVAR</h1>
-      <ul>
-      {data.map((data, index) => (
-      <StyledFaq onClick={() => toggleIsOpen(index)} key={index}>
-        <StyledQuestion>
-          <StyledArrow> { showHide[index] ? <ArrowUpIcon fill="grey"/> : <ArrowDownIcon fill="grey"/> } </StyledArrow>
-            <Question>{data.question}</Question>
-        </StyledQuestion>
-      <Collapse isOpened={showHide[index]}><Answer>{data.answer}</Answer></Collapse>
-      </StyledFaq>
- ))}
- </ul>
-    </StyledContainer>
-    
+    <StyledBlock>
+      <StyledContainer>
+        <h1>FRÅGOR OCH SVAR</h1>
+        <ul>
+        {data.map((data, index) => (
+        <StyledFaq onClick={() => toggleIsOpen(index)} key={index}>
+          <StyledQuestion>
+            <StyledArrow> { showHide[index] ? <ArrowUpIcon fill="grey"/> : <ArrowDownIcon fill="grey"/> } </StyledArrow>
+              <Question>{data.question}</Question>
+          </StyledQuestion>
+        <Collapse isOpened={showHide[index]}><Answer>{data.answer}</Answer></Collapse>
+        </StyledFaq>
+  ))}
+  </ul>
+      </StyledContainer>
+    </StyledBlock>
+      
 
   );
 };

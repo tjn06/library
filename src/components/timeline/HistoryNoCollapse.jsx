@@ -9,7 +9,12 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   position: relative;
   margin: 5px 10px 10px 10px;
-  
+  max-width: 800px;
+  @media (max-width: 686px){
+    max-width: 300px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 
   &:after{
     background-color: #91bb98;
@@ -183,15 +188,15 @@ const data = [
   },
 
   {
-    category:"Försvaret",
+    category:"SPA",
     time:"2016",
-    text:"Hyrde in Bandidos för att skydda verksamheten"
+    text:"Byggde poolhus med tillhörande spa"
   },
 
   {
     category:"Nöjdast kunder",
     time:"2018",
-    text:"Bandidos räddade kunder genom att börja sälja öppet på restaurangen"
+    text:"Bästa spa i Sverige"
   },
 
   {

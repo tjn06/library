@@ -3,13 +3,17 @@ import styled from "styled-components";
 import {Collapse} from 'react-collapse';
 
 const StyledWrapper = styled.div`
-  background-color: #ebebeb;
+  background-color: white;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   position: relative;
   margin: 5px 10px 10px 10px;
-  
+  @media (max-width: 686px){
+    max-width: 300px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 
   &:after{
     background-color: #91bb98;
@@ -21,13 +25,15 @@ const StyledWrapper = styled.div`
 
     @media (max-width: 686px){
       left: 10px;
+      
     }
+
   }
 `
 
 
 const StyledCircle = styled.span`
-  background-color:  #ebebeb;
+  background-color:  white;
   border: 3px solid  #91bb98;
   width: 20px;
   height: 20px;
@@ -48,7 +54,7 @@ const StyledContent = styled.div`
   min-width: 150px;
   max-width: 200px;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.685);
+  
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -71,12 +77,12 @@ const StyledContent = styled.div`
     right: -7.5px;
     top: calc(50% - 7.5px);
     transform: rotate(45deg);
-    box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px -3px 1px rgba(0, 0, 0, 0.3);
 
     @media (max-width: 686px){
       right: auto;
       left: -7.5px;
-      box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.3);
+      box-shadow: -3px 3px 1px rgba(0, 0, 0, 0.3);
     }
 
 
@@ -120,7 +126,7 @@ const StyledItem = styled.div`
   ${StyledContent}:after{
     right: auto;
     left: -7.5px;
-    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: -3px 3px 1px rgba(0, 0, 0, 0.3);
   }
   ${StyledCircle}{
     right: auto;
@@ -183,15 +189,15 @@ const data = [
   },
 
   {
-    category:"Försvaret",
+    category:"Nytt",
     time:"2016",
-    text:"Hyrde in Bandidos för att skydda verksamheten"
+    text:"Renoverade hela stället"
   },
 
   {
-    category:"Nöjdast kunder",
+    category:"En era startar",
     time:"2018",
-    text:"Bandidos räddade kunder genom att börja sälja öppet på restaurangen"
+    text:"Tobias tog över och en ny era tar vid"
   },
 
   {

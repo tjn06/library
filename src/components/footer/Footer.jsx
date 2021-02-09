@@ -7,7 +7,7 @@ import styled from 'styled-components';
 const StyledFooter = styled.footer`
 height: 200px;
 text-align: center;
-background-color: #004d2d;
+background-color: #e4e4e4;
 color: white;
 opacity: 0.8;
 
