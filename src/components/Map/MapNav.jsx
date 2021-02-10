@@ -58,7 +58,7 @@ const Container = styled(MapContainer)`
 const PopUP = styled(Popup)`
       .leaflet-popup-content-wrapper, .leaflet-popup-tip{
         background-color: #e9e9e9;
-        border: 2px solid #777777;
+        border: 1px solid #777777;
       }
  
 `
