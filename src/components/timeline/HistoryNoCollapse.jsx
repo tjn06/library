@@ -9,7 +9,7 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   position: relative;
   margin: 5px 10px 10px 10px;
-  max-width: 800px;
+  
   @media (max-width: 686px){
     max-width: 300px;
     margin-right: auto;

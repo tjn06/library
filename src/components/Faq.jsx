@@ -52,6 +52,9 @@ const Answer = styled.p`
   margin-right: 40px;
 
 `
+const StyledHeader = styled.h1`
+  text-align: center;
+`
 
 const data = [
   {
@@ -87,7 +90,7 @@ const Faq = () => {
   return (
     <StyledBlock>
       <StyledContainer>
-        <h1>FRÅGOR OCH SVAR</h1>
+        <StyledHeader>FRÅGOR OCH SVAR</StyledHeader>
         <ul>
         {data.map((data, index) => (
         <StyledFaq onClick={() => toggleIsOpen(index)} key={index}>
