@@ -83,7 +83,7 @@ const StyledContentText = styled.div`
 `;
 
 
-const ImageBlockTwoTextBlock = ({height, mediaQueryBreakPoint}, props) => (
+const ImageBlockTwoTextBlock = ({height, mediaQueryBreakPoint}) => (
   <StyledBlock height={height} mediaQueryBreakPoint={mediaQueryBreakPoint}>
 
       <StyledContent height={height} mediaQueryBreakPoint={mediaQueryBreakPoint}>

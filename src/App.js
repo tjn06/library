@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import Header from './components/Headers/Header';
@@ -16,7 +16,7 @@ import Footer from './components/footer/Footer';
 
 
 const TopMargin = styled.div`
-  padding-top: 85px;
+  padding-top: 150px;
 
   @media (max-width: 648px) {
     padding-top: 50px;
@@ -24,21 +24,37 @@ const TopMargin = styled.div`
   }
 `;
 
+const StyledMinHeight = styled.div`
+  height: 800px;
+  @media (max-width: 648px) {
+  }
+`;
+
+const StyledEditButton = styled.button` 
+  position: fixed;
+  top: 4px;
+  right: -20px;
+  z-index: 111;
+  `;
+
+
 function App() {
+  const [showEdit, setShowEdit] = useState(false);
   return (
     <Router>
-      <IndexHeader/>
+      <IndexHeader showEdit={showEdit}/>
+      <StyledEditButton onClick={() => setShowEdit(!showEdit)}>Edit On Off</StyledEditButton>
       <ContactFixed/>
       <TopMargin>
         <Routes>
-          <Route path="/" element={<Home topMargin="1000px"/>} />
-          <Route path="/Menu" element={<Menu />} />
-          <Route path="/faq" element={<Faq />} />
-          <Route path="/*" element={<NotFound />} />
+          <Route path="/" element={<Home showEdit={showEdit}/>} />
+          <Route path="/Menu" element={<Menu showEdit={showEdit}/>} />
+          <Route path="/faq" element={<Faq showEdit={showEdit}/>} />
+          <Route path="/*" element={<NotFound showEdit={showEdit}/>} />
         </Routes>
       </TopMargin>
       {/* <HeaderNoScroll/> */}
-      <div>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/>fvvvrvr<br/></div>
+      <StyledMinHeight/>
       <Footer />
     </Router>
   );

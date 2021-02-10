@@ -1,18 +1,26 @@
 import React from 'react';
 import Header from './Header'
-// import HeaderTwoRows from './HeaderTwoRows'
+import EditMode from '../edit/EditMode'
+import HeaderTwoRows from './HeaderTwoRows'
 // import HeaderNoScroll from './HeaderNoScroll'
 // import InfoHeaderOneRow from './InfoHeaderOneRow'
 
 
-function IndexHeader() {
+function IndexHeader({showEdit}) {
 
 
 
   return(
 
     <div>
-      <Header />
+      <EditMode
+        showEdit={showEdit}
+        componentLabel={"Herobild"}
+        // direction={"column-reverse"}
+        altOneComponent={<Header />} 
+        altTwoComponent={<HeaderTwoRows />}
+      />
+      {/* <Header /> */}
      {/* <HeaderTwoRows /> */}
       {/* <HeaderNoScroll /> */}
     </div>

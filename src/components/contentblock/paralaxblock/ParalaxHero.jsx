@@ -60,7 +60,6 @@ const StyledTextPaddingBox = styled.div`
   }
 `;
 
-
 const StyledHeadingText = styled.div`
   font-size: 3em;
   text-transform: uppercase;
@@ -73,12 +72,23 @@ const StyledHeadingText = styled.div`
   border-left: 5px solid #A84061;
 /* text-shadow: 3px 2px 1px rgba(104, 104, 104, 0.13); */
   @media (max-width: ${props => props.mediaQueryBreakPoint}) {
-    font-size: 1em;
+    font-size: 2.5em;
   }
 `;
 const Text = styled.p`
   margin-left: 8px;
 `
+
+const StyledBtnContainer = styled.div`
+  display: flex;
+  padding-left: 10px;
+  flex-wrap: wrap;
+
+  @media (max-width: ${props => props.mediaQueryBreakPoint}) {
+    /* font-size: 2.5em;
+    flex-direction: column; */
+  }
+`;
 
 
 
@@ -96,13 +106,17 @@ const ParalaxHero = ({height, mediaQueryBreakPoint, scrollEffect}, props) => (
           <StyledParalaxContent mediaQueryBreakPoint={mediaQueryBreakPoint}>
           <StyledTextContent>
             <StyledTextPaddingBox>
-              <StyledHeadingText>15 års erfarenhet</StyledHeadingText>
+              <StyledHeadingText mediaQueryBreakPoint={mediaQueryBreakPoint}>15 års erfarenhet</StyledHeadingText>
               <Text>15 års erfarenhet som snickare 🛠<br></br>
               För privatkunder, företag el. samarbeten med andra bolag inom branschen</Text><br/>
-              <div style={{display: "flex", paddingLeft: "10px"}}>
-              <StandardButton  fontsize="10px" fontweight="300" textcolor="white" radius="1px;" color="#A84061" />
-              <StandardButton  fontsize="10px" fontweight="300" textcolor="white" radius="1px;" color="#AFB880" />
-              </div>
+              <StyledBtnContainer mediaQueryBreakPoint={mediaQueryBreakPoint}>
+              <StandardButton fontsize="12px" fontweight="300" textcolor="white"
+              width="15rem" height="3rem" margin="12px"
+              radius="1px;" color="#A84061" />
+              <StandardButton  fontsize="12px" fontweight="300" textcolor="white"
+              width="15rem" height="3rem" margin="12px"
+              radius="1px;" color="#AFB880" />
+              </StyledBtnContainer>
             </StyledTextPaddingBox>
           </StyledTextContent>
           </StyledParalaxContent>

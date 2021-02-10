@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 
 const Button = styled.div`
+  margin: ${props => props.margin ?  props.margin :  'unset'}; 
   border: ${props => props.border ?  props.border :  '1.5px solid rgb(0, 0, 0)'}; 
   border-radius:${props => props.radius ?  props.radius : '10px'};
   background-color: ${props => props.color ?  props.color : '#4da14a'};
@@ -25,9 +26,9 @@ const ButtonText= styled.p`
   color:  ${props => props.textcolor ?  props.textcolor : 'white'};
 `
 
-function StandardButton({border, color, width, height, radius, fontweight, fontsize, textcolor}) {
+function StandardButton({border, color, width, height, radius, margin, fontweight, fontsize, textcolor}) {
   return (
-    <Button border={border} color={color} width={width} height={height} radius={radius} >
+    <Button border={border} color={color} width={width} height={height} radius={radius} margin={margin}>
       <ButtonText fontweight={fontweight} fontsize={fontsize} textcolor={textcolor}>BUTTON</ButtonText>
     </Button>
   )

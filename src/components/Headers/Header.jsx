@@ -378,7 +378,7 @@ function Header() {
           <StyledBorderSidesFirst >
             <StyledOpenHoursIcon onClick={() => setShowHideshowHideOpenHours(!showHideOpenHours)} width="20" height="20"/>
             {/* <StyledClose /> */}
-            {showHideOpenHours ? (
+            {showHideOpenHours  ? (
               <OpenHours closeOpenHoursChild={closeThisOpenHours} topPosition="51px" marginLeft="-93px" />
               ) : (
               null

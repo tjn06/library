@@ -3,11 +3,11 @@ import React, { useState} from "react";
 // import family from '../assets/family.svg';
 // import { Routes, Route } from "react-router-dom";
 
-import MenuPizza from './menucomponents/MenuPizza';
-import MenuKebab from './menucomponents/MenuKebab';
-import MenuSallad from './menucomponents/MenuSallad';
-import MenuDryck from './menucomponents/MenuDryck';
-import MenuOvrigt from './menucomponents/MenuOvrigt';
+import MenuPizza from './MenuPizza';
+import MenuKebab from './MenuKebab';
+import MenuSallad from './MenuSallad';
+import MenuDryck from './MenuDryck';
+import MenuOvrigt from './MenuOvrigt';
 
 import styled from "styled-components";
 
@@ -47,7 +47,7 @@ cursor: pointer;
 }
 `;
 
-const Menu = () => {
+const Products = () => {
   const PIZZA = 'pizza', KEBAB = 'kebab', SALLAD = 'sallad', DRYCK = 'dryck', OVRIGT = 'ovrigt';
 
   const [currentScreen, setCurrentScreen] = useState(PIZZA);
@@ -120,4 +120,4 @@ const Menu = () => {
 
 
 
-export default Menu;
+export default Products;

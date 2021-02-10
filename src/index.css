@@ -55,3 +55,19 @@ body {
     width: 100%;
   }
 }
+
+/* .gridding {
+display: grid;
+grid-gap: 1rem;
+grid-template-areas:  'gridItem1'
+                      'gridItem2';
+                    }
+.grid-item-1 {
+  grid-area: gridItem1;
+  background-color: lime;
+}
+
+.grid-item-2 {
+  grid-area: gridItem2;
+  background-color: lime;
+} */
