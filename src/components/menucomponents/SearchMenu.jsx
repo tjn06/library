@@ -36,8 +36,8 @@ const StyledSearchField = styled.input`
   height: 36px;
 
   &:focus {
-    color: green;
-    border: 2px solid green;
+    color: var(--color-green);
+    border: 2px solid var(--color-green);
   }
 `;
 

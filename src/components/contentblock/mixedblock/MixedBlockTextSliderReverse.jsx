@@ -9,7 +9,8 @@ const StyledBlock = styled.div`
 /* border: 1px solid #e24343; */
   display: flex;
   width: 100%;
-  background: #f7f7f7;
+  background: #eeeeee;
+  flex-direction: row-reverse;
   /* height: ${props => props.height}; */
   /* background-image: url(${image1}); */
   /* background-repeat: no-repeat;
@@ -83,7 +84,7 @@ const StyledContentText = styled.div`
 `;
 
 
-const MixedBlockTextSlider = ({height, mediaQueryBreakPoint}) => (
+const MixedBlockTextSliderReverse = ({height, mediaQueryBreakPoint}) => (
   <StyledBlock height={height} mediaQueryBreakPoint={mediaQueryBreakPoint}>
 
       <StyledContent height={height} mediaQueryBreakPoint={mediaQueryBreakPoint}>
@@ -101,4 +102,4 @@ const MixedBlockTextSlider = ({height, mediaQueryBreakPoint}) => (
   </StyledBlock>
 );
 
-export default MixedBlockTextSlider;
+export default MixedBlockTextSliderReverse;

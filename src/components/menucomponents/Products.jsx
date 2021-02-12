@@ -19,7 +19,7 @@ const StyledWrapperCentering = styled.div`
 const StyledContentWidth = styled.div` 
   display: flex;
   flex-direction: column;
-  width: 900px; 
+  width: 1024px; 
   /* flex-basis: 1080px; */
   /* margin: 0 auto; */
   justify-content: center;
@@ -39,10 +39,10 @@ cursor: pointer;
     -ms-user-select: none;
     user-select: none;
 &.selected {
-  color: green;
+  color: var(--color-pink);
 }
 &:hover {
-  color: green;
+  color: var(--color-green);
   transition: all 0.1s ease;
 }
 `;

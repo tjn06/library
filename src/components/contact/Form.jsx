@@ -2,20 +2,26 @@ import React, {useState} from 'react'
 import styled from 'styled-components';
 
 const StyledFormWrapper = styled.div`
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 20px; 
+  padding: 10px 20px;  */
 `;
 
 const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  max-width: 400px;
+
   padding: 40px;
   background-color: #fff;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   box-sizing: border-box;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 686px) {
+    max-width: unset;
+  }
 `;
 
 const StyledInput = styled.input`

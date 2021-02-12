@@ -6,16 +6,26 @@ import EatIcon from '../iconcomponents/EatIcon';
 import RewardIcon from '../iconcomponents/RewardIcon';
 import OpenIcon from '../iconcomponents/OpenIcon';
 
+const StyledBlock = styled.div`
+  display: flex;
+  width: 100%;
+  background-color: #fcfcfc;
+  justify-content: center;
+  @media (max-width: ${props => props.mediaQueryBreakPoint}) {
+
+  }
+`;
 
 const StyledGrid = styled.div`
   display : flex;
   flex-direction: row;
   justify-content: space-between;
-  max-width: 1024px;
-  margin: auto;
-  margin-top: 10px;
+  flex-basis: 1024px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   font-family: 'Rokkitt', serif;
-  background-color: #FEFBF8;
+  background-color: #fcfcfc;
+  /* background-color: #FEFBF8; */
 
   @media (max-width: 686px){
     flex-direction: column;
@@ -61,10 +71,8 @@ const StyledText = styled.p`
 export default function ThreeGrid() {
   
 
-
-
-
   return (
+    <StyledBlock>
     <StyledGrid>
       <StyledLink to="/find-us" onClick={StopScroll}>
         <StyledContent >
@@ -90,5 +98,6 @@ export default function ThreeGrid() {
       </StyledContent>
    </StyledLink>
     </StyledGrid>
+    </StyledBlock>
   )
 }

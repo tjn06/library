@@ -63,7 +63,7 @@ const StyledTextPaddingBox = styled.div`
 const StyledHeadingText = styled.div`
   font-size: 3em;
   text-transform: uppercase;
-  color: #353535;;
+  color: #353535;
   padding-left: 3px;
   font-family: Oswald, sans-serif;
   font-weight: 700;
@@ -112,10 +112,10 @@ const ParalaxHero = ({height, mediaQueryBreakPoint, scrollEffect}, props) => (
               <StyledBtnContainer mediaQueryBreakPoint={mediaQueryBreakPoint}>
               <StandardButton fontsize="12px" fontweight="300" textcolor="white"
               width="15rem" height="3rem" margin="12px"
-              radius="1px;" color="#A84061" />
+              radius="1px;" color="var(--color-pink)" />
               <StandardButton  fontsize="12px" fontweight="300" textcolor="white"
               width="15rem" height="3rem" margin="12px"
-              radius="1px;" color="#AFB880" />
+              radius="1px;" color="var(--color-green)" />
               </StyledBtnContainer>
             </StyledTextPaddingBox>
           </StyledTextContent>

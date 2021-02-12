@@ -12,7 +12,7 @@ const StyledGridMenu = styled.div`
   /* border: 1px solid rgb(24, 179, 44); */
   height: auto;
   display: grid;
-  gap: 5px;
+  gap: 20px;
   row-gap: 0;
   grid-template-columns: 1fr 1fr;
   padding: 0px;
@@ -82,10 +82,10 @@ cursor: pointer;
     -ms-user-select: none;
     user-select: none;
 &.selected {
-  color: green;
+  color: var(--color-pink);
 }
 &:hover {
-  color: green;
+  color: var(--color-green);
   transition: all 0.1s ease;
 }
 `;

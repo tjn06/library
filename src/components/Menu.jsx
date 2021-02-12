@@ -14,12 +14,13 @@ import styled from "styled-components";
 const StyledWrapperCentering = styled.div` 
   display: flex;
   justify-content: center;
+  width: 100%;
 `;
 
 const StyledContentWidth = styled.div` 
   display: flex;
   flex-direction: column;
-  width: 900px; 
+  width: 1024px; 
   /* flex-basis: 1080px; */
   /* margin: 0 auto; */
   justify-content: center;

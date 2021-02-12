@@ -18,7 +18,7 @@ const StyledFlexCenterPos = styled.div`
 const StyledLetterSpacing = styled.div`
   letter-spacing: 3px;
   font-size: 0.6em;
-  color:  #8f8f8f;
+  color: #8f8f8f;
   /* font-weight: bold; */
   line-height: 1.2em;
 `;
@@ -58,7 +58,7 @@ const Input = styled.input`
     width:50px;
     height:30px;
     /* background: linear-gradient(0deg, #000, #fafafa); */
-    background: green;
+    background: var(--color-pink);
     border-radius: 10px;
     transform: scale(.98,.96);
     transition:.5s;
@@ -66,7 +66,7 @@ const Input = styled.input`
 
   &:checked:before {
     left:40px;
-    background: #005500;
+    background: var(--color-green);
   }
 
   &:checked:after {

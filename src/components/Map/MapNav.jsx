@@ -15,14 +15,15 @@ const Container = styled(MapContainer)`
     height:400px; */
 
     /* top:0px; */
-    margin: auto;
+    
+    /* margin: auto; */
     border: 1px solid #888888;
     border-radius: 10px;
     /* -3px 3px 10px -2px rgba(0, 0, 0, 0.253) */
 
     position: ${props => props.position ?  props.position :  'block'};
     top: ${props => props.topPosition ?  props.topPosition :  'unset'};
-    width: ${props => props.width ?  props.width : '400px'};  
+    width: ${props => props.width ?  props.width : '512px'};  
     height:${props => props.height ?  props.height : '400px'};
     border-radius:${props => props.radius ?  props.radius : '10px'};
     border: ${props => props.border ?  props.border :  '1.5px solid rgb(0, 0, 0)'}; 
