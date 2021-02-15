@@ -1,29 +1,28 @@
 import React from "react";
 import styled from "styled-components";
-import MapNav from './MapNav'
 import { useGlobalState } from '../state';
 
+import ImagesSlider from './ImagesSliderTheme';
+
+
 const StyledBlock = styled.div`
-/* border: 1px solid #e24343; */
   display: flex;
   width: 100%;
   background-color: ${props => props.backgAlt ?  props.backgOne : props.backgTwo};
   /* background: #eeeeee; */
   justify-content: center;
-  align-content: center;
   color: black;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  
+  @media (max-width: ${props => props.mediaQueryBreakPoint}) {
+    
+  }
 `;
 
-const StyledContentSize = styled.div`
-display: flex;
-justify-content: center;
- width: 100%;
- max-width: 1024px;
+const StyledContent = styled.div`
+  width: 1024px;
+  color: black;
+  padding: 20px 0px 20px 0px;
   @media (max-width: ${props => props.mediaQueryBreakPoint}) {
-    max-width: unset;
+
   }
 `;
 
@@ -54,26 +53,23 @@ const StyledButton = styled.button`
 }
 `;
 
-const MapNavBig = ({height, mediaQueryBreakPoint, backgOne, backgTwo}, props) => {
+const BlockImageGallerySliderTheme = ({height, mediaQueryBreakPoint, backgOne, backgTwo}, props) => {
   const [edit] = useGlobalState('showEdit');
-  const [backgAlt, setBackgAlt] = useGlobalState('backgMapNavBig');
+  const [backgAlt, setBackgAlt] = useGlobalState('backgBlockImageGallerySliderTheme');
 
   return(
-    <div>
+    <StyledBlock height={height} mediaQueryBreakPoint={mediaQueryBreakPoint} backgAlt={backgAlt} backgOne={backgOne} backgTwo={backgTwo}>
       {edit ? (
       <StyledButton onClick={() => setBackgAlt(!backgAlt)}>Skifta bakgrund</StyledButton>
       ) : (
         null
       )
       }
-      <StyledBlock height={height} mediaQueryBreakPoint={mediaQueryBreakPoint} backgAlt={backgAlt} backgOne={backgOne} backgTwo={backgTwo}>
-        <StyledContentSize height={height} mediaQueryBreakPoint={mediaQueryBreakPoint}>
-            <MapNav width={"1024px"}/>
-        </StyledContentSize>
-
-      </StyledBlock>
-    </div>
+        <StyledContent height={height} mediaQueryBreakPoint={mediaQueryBreakPoint}>
+          <ImagesSlider/>
+        </StyledContent>
+    </StyledBlock>
   );
 };
 
-export default MapNavBig;
+export default BlockImageGallerySliderTheme;

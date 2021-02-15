@@ -1,75 +1,121 @@
 import React, { useState, useEffect }from "react";
 import SortableList, { SortableItem } from "react-easy-sort";
 import arrayMove from "array-move";
-
 // import {Link} from 'react-router-dom'
-// import styled from "styled-components";
+import styled from "styled-components";
+import { useGlobalState } from './state';
 
 import ParalaxHero from './contentblock/paralaxblock/ParalaxHero';
 import ParalaxBlockTwoTextBlock from './contentblock/paralaxblock/ParalaxBlockTwoTextBlock';
 import ParalaxBlockOneTextBlock from './contentblock/paralaxblock/ParalaxBlockOneTextBlock';
 import HeroBlock from './contentblock/imageblock/HeroBlock';
-
 //import ParalaxBlockOneTextBlock from './contentblock/paralaxblock/ParalaxBlockOneTextBlock';
 //import HeroBlock from './contentblock/imageblock/HeroBlock';
 import ImageBlockTwoTextBlock from './contentblock/imageblock/ImageBlockTwoTextBlock';
-
+import ImageBlockOneTextBlock from './contentblock/imageblock/ImageBlockOneTextBlock';
 import ThreeGrid from './grids/ThreeGrid'
-import MixedBlockOrderImageText from './contentblock/mixedblock/MixedBlockOrderImageText';
-import MixedBlockOrderTextImage from './contentblock/mixedblock/MixedBlockOrderTextImage';
-
+import ThreeGridWithBorder from './grids/ThreeGridWithBorder'
 import MixedBlockTextSlider from './contentblock/mixedblock/MixedBlockTextSlider';
 import MixedBlockTextSliderReverse from './contentblock/mixedblock/MixedBlockTextSliderReverse';
 import MixedBlockOrderTextImgElement from './contentblock/mixedblock/MixedBlockOrderTextImgElement';
 import MixedBlockOrderImgElementText from './contentblock/mixedblock/MixedBlockOrderImgElementText';
-
 // import ImagesSlider from './galleries/ImagesSlider';
 import GridGalleryImages from './galleries/GridGalleryImages';
+import GridGalleryImagesSmall from './galleries/GridGalleryImagesSmall';
 import TextBlockCentered from './contentblock/textblock/TextBlockCentered';
-
-import styled from "styled-components";
-import StandardButton from './buttons/StandardButton'
-
+// import StandardButton from './buttons/StandardButton'
 import BlockImageGallerySlider from './galleries/BlockImageGallerySlider';
-
+import BlockImageGallerySliderTheme from './galleries/BlockImageGallerySliderTheme';
 import EditMode from './edit/EditMode'
-
 import Products from './menucomponents/Products';
-import MapNav from './map/MapNav';
+// import MapNav from './map/MapNav';
 import MapNavWithImage from './map/MapNavWithImage';
 import MapNavBig from './map/MapNavBig';
 // import Form from './contact/Form';
 import FormWithImage from './contact/FormWithImage';
 import FormCenter from './contact/FormCenter';
-import History from './timeline/History'
-import HistoryNoCollapse from './timeline/HistoryNoCollapse'
-import Faq from './Faq'
-
+import HistoryBlock from './timeline/HistoryBlock'
+import HistoryNoCollapseBlock from './timeline/HistoryNoCollapseBlock'
+import FaqComponentBlock from './faq/FaqComponentBlock'
+import MixedBlockOrderImageText from './contentblock/mixedblock/MixedBlockOrderImageText';
+import MixedBlockOrderTextImage from './contentblock/mixedblock/MixedBlockOrderTextImage';
 
 
 // import HeaderTwoRows from './HeaderTwoRows';
 
-
-const Div = styled.div`
+const StyledWrapper = styled.div`
   /* color: white; */
 `;
 
-const StyledEditButton = styled.button` 
+const StyledComponentData = styled.div`
+  /* background-color: #343434;
+  color: white; */
   position: fixed;
-  top: 4px;
-  right: -20px;
-  z-index: 111;
+  z-index: 999;
+  left: 3px;
+  bottom: 0;
+  
+`;
+
+const StyledData = styled.div`
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  /* padding: 5px;
+  margin-left: 3px; */
+`;
+
+const StyledEditButton = styled.button` 
+  width: 150px;
+  /* position: fixed;
+  bottom: 0px;
+  left: 50%;
+  z-index: 111; */
+  background-color: #607D8B;
+  color: white;
+  margin: 3px 3px 1px 3px;
+  padding: 6px;
+  box-shadow: 0px 0px 0px transparent;
+  border: 1px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+  border-radius: 2px;
+  /* border: 3px solid blue; */
+  cursor: pointer;
+  opacity: 0.7;
+
+  :hover {
+    box-shadow: 0px 0px 0px transparent;
+    border: 1px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+    background-color: #03A9F4;
+    opacity: 1;
+  }
+  :active {
+    outline: 0;
+    /* border: 1px solid black; */
+  }
+  :focus {
+    outline: 0;
+  }
+  @media (max-width: 648px) {
+  }
   `;
+
 
 const mediaQ = "686px"; // To all mediaquerys in styled components in this component
 // const mediaQNumber = 686; // To function closeMobileMenuRouteClick number without px is required
 
-const Home = ({showEdit}) => {
-  // const [showEdit, setShowEdit] = useState(false);
+const Home = (
+
+) => {
+  const [componentDataHome, seComponentDataHome] = useGlobalState('componentDataHome');
+  const [showEdit] = useGlobalState('showEdit');
+  const [showOrderData, setShowOrderData] = useState(false);
+
   const [data, setData] = useState([
     <EditMode
       key={1}
-      showEdit={showEdit}
+      showComponent={true}
       componentLabel={"Herobild"}
       direction={"column-reverse"}
       altOneComponent={<ParalaxHero height="400px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>} 
@@ -77,40 +123,40 @@ const Home = ({showEdit}) => {
     />,
   
     <EditMode
-      key={2}
-      showEdit={showEdit}
+    key={2}
+      showComponent={true}
       componentLabel={"Presentation ikoner"}
-      altOneComponent={<ThreeGrid />} 
-      altTwoComponent={<ThreeGrid />}
+      altOneComponent={<ThreeGrid backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
+      altTwoComponent={<ThreeGridWithBorder backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
     />,
   
     <EditMode
     key={3}
-      showEdit={showEdit}
+    showComponent={true}
       componentLabel={"Karusell bilder"}
-      altOneComponent={<MixedBlockTextSlider height="250px" mediaQueryBreakPoint={mediaQ} />} 
-      altTwoComponent={<MixedBlockTextSliderReverse height="250px" mediaQueryBreakPoint={mediaQ} />}
+      altOneComponent={<MixedBlockTextSlider height="250px" mediaQueryBreakPoint={mediaQ} backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
+      altTwoComponent={<MixedBlockTextSliderReverse height="250px" mediaQueryBreakPoint={mediaQ} backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
     />,
   
     <EditMode
     key={4}
-      showEdit={showEdit}
+    showComponent={true}
       componentLabel={"Block centrerad text"}
-      altOneComponent={<TextBlockCentered height="255px" mediaQueryBreakPoint={mediaQ} />} 
-      altTwoComponent={<TextBlockCentered height="455px" mediaQueryBreakPoint={mediaQ} />}
+      altOneComponent={<TextBlockCentered height="255px" mediaQueryBreakPoint={mediaQ} backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
+      altTwoComponent={<TextBlockCentered height="455px" mediaQueryBreakPoint={mediaQ} backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
     />,
   
     <EditMode
     key={5}
-      showEdit={showEdit}
+    showComponent={true}
       componentLabel={"Block Bild och text"}
-      altOneComponent={<MixedBlockOrderTextImgElement height="250px" mediaQueryBreakPoint={mediaQ} />} 
-      altTwoComponent={<MixedBlockOrderImgElementText height="250px" mediaQueryBreakPoint={mediaQ} />}
+      altOneComponent={<MixedBlockOrderTextImgElement height="250px" mediaQueryBreakPoint={mediaQ} backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
+      altTwoComponent={<MixedBlockOrderImgElementText height="250px" mediaQueryBreakPoint={mediaQ} backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
     />,
   
     <EditMode
     key={6}
-      showEdit={showEdit}
+    showComponent={true}
       componentLabel={"Block paralax-bakgrund"} 
       altOneComponent={<ParalaxBlockOneTextBlock height="200px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>} 
       altTwoComponent={<ParalaxBlockTwoTextBlock height="200px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>}
@@ -118,85 +164,123 @@ const Home = ({showEdit}) => {
   
     <EditMode
     key={7}
-      showEdit={showEdit}
+    showComponent={false}
       componentLabel={"Block standard-bakgrund"} 
-      altOneComponent={<ImageBlockTwoTextBlock height="250px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>} 
+      altOneComponent={<ImageBlockOneTextBlock height="250px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>} 
       altTwoComponent={<ImageBlockTwoTextBlock height="250px" mediaQueryBreakPoint={mediaQ} scrollEffect={500}/>}
     />,
   
     <EditMode
+    showComponent={true}
     key={8}
-      showEdit={showEdit}
       componentLabel={"Bildgalleri"} 
-      altOneComponent={<GridGalleryImages />} 
-      altTwoComponent={<GridGalleryImages />}
+      altOneComponent={<GridGalleryImages backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
+      altTwoComponent={<GridGalleryImagesSmall backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
     />,
   
     <EditMode
       key={9}
-      showEdit={showEdit}
+      showComponent={false}
       componentLabel={"Stor karusell bilder"} 
-      altOneComponent={<BlockImageGallerySlider />} 
-      altTwoComponent={<BlockImageGallerySlider />}
+      altOneComponent={<BlockImageGallerySlider backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
+      altTwoComponent={<BlockImageGallerySliderTheme backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
     />,
   
     <EditMode
     key={10}
-      showEdit={showEdit}
+    showComponent={false}
       componentLabel={"Meny produkter"} 
-      altOneComponent={<Products />} 
-      altTwoComponent={<Products />}
+      altOneComponent={<Products backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
+      altTwoComponent={<Products backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
     />,
   
     <EditMode
     key={11}
-      showEdit={showEdit}
+    showComponent={false}
       componentLabel={"Karta"} 
       // altOneComponent={<MapNav width='1024px' height='600px'/>} 
-      altOneComponent={<MapNavBig />} 
-      altTwoComponent={<MapNavWithImage />}
+      altOneComponent={<MapNavWithImage backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
+      altTwoComponent={<MapNavBig backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
     />,
   
     <EditMode
     key={12}
-      showEdit={showEdit}
+    showComponent={true}
       componentLabel={"Formulär"} 
-      altOneComponent={<FormWithImage height="500px" mediaQueryBreakPoint={mediaQ}/>} 
-      altTwoComponent={<FormCenter height="500px" mediaQueryBreakPoint={mediaQ}/>}
+      altOneComponent={<FormWithImage height="500px" mediaQueryBreakPoint={mediaQ} backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
+      altTwoComponent={<FormCenter height="500px" mediaQueryBreakPoint={mediaQ} backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
     />,
   
     <EditMode
     key={13}
-      showEdit={showEdit}
+    showComponent={false}
       componentLabel={"Timeline/Historia"} 
-      altOneComponent={<History />} 
-      altTwoComponent={<HistoryNoCollapse />}
+      altOneComponent={<HistoryNoCollapseBlock backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
+      altTwoComponent={<HistoryBlock backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
     />,
     
     <EditMode
     key={14}
-      showEdit={showEdit}
+    showComponent={false}
       componentLabel={"Faq/frågor"} 
-      altOneComponent={<Faq />} 
-      altTwoComponent={<Faq />}
+      altOneComponent={<FaqComponentBlock backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
+      altTwoComponent={<FaqComponentBlock backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
     />,
 
     <EditMode
     key={15}
-      showEdit={showEdit}
+    showComponent={false}
       componentLabel={"Bild/text skalning"} 
-      altOneComponent={<MixedBlockOrderTextImage height="250px" mediaQueryBreakPoint={mediaQ} />} 
-      altTwoComponent={<MixedBlockOrderImageText height="250px" mediaQueryBreakPoint={mediaQ} />}
+      altOneComponent={<MixedBlockOrderTextImage height="250px" mediaQueryBreakPoint={mediaQ} backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
+      altTwoComponent={<MixedBlockOrderImageText height="250px" mediaQueryBreakPoint={mediaQ} backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
     />
   ])
+
+  console.log(data)
 
   const onSortEnd = (oldIndex, newIndex) => {
     setData((array) => arrayMove(array, oldIndex, newIndex));
   };
 
+  useEffect(() => {
+    seComponentDataHome(data)
+       console.log(componentDataHome)
+  }, [data])
+
+  // const outputComponents = componentDataHome.map((component, index) => (
+  //   <div key={index}>
+  //     {component.key} {component.props.componentLabel}
+  //   </div>
+  // ));
+  
+
 
   return (
-  <Div>
+  <StyledWrapper>
+
+    {showEdit ? (
+      <StyledComponentData>
+        {showOrderData ? (
+        <StyledData>
+        {componentDataHome.map((component, index) => (
+        <div key={index}>
+          {component.key} {component.props.componentLabel}
+        </div>
+      ))}
+      <StyledEditButton>Skicka data</StyledEditButton>
+      </StyledData>
+
+        ) : (
+          null
+        )}
+      
+      <StyledEditButton onClick={() => setShowOrderData(!showOrderData)}>Data</StyledEditButton>
+      </StyledComponentData>
+    ) : (
+      null
+    )
+  }
+
     <SortableList
       onSortEnd={onSortEnd}
       className="list"
@@ -207,7 +291,8 @@ const Home = ({showEdit}) => {
           <div className="item">
           <EditMode
             key={item.key}
-            showEdit={showEdit}
+            showComponent={item.props.showComponent}
+            // showEdit={showEdit}
             componentLabel={item.props.componentLabel} 
             altOneComponent={item.props.altOneComponent} 
             altTwoComponent={item.props.altTwoComponent}
@@ -237,7 +322,7 @@ const Home = ({showEdit}) => {
     <StandardButton  fontsize="10px" fontweight="300" textcolor="pink" /> */}
     {/* <GridGalleryImages /> */}
     {/* <BlockImageGallerySlider /> */}
-  </Div>
+  </StyledWrapper>
   );
 }
 

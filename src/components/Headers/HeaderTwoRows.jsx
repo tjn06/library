@@ -27,6 +27,7 @@ const StyledHeader = styled.header`
   transform: translateY(0);
   transition: transform 0.3s ease;
   border-bottom: 1px solid rgb(184, 184, 184);
+  z-index: 10; 
 
   &.shadow {
   box-shadow: 0 9px 9px -9px rgba(0, 0, 0, 0.13);
@@ -96,7 +97,7 @@ const StyledNavOptions = styled.ul`
     width: 100%;
     /* height: 350px; */
     position: absolute;
-    top: 50px;
+    top: 99px;
     left: 100%;
     opacity: 0;
     transition: all 0.2s ease;
@@ -206,7 +207,7 @@ function HeaderTwoRows() {
         <StyledNavOptions className={toggleHamburgerAndMenu ? "active" : ""}>
           <StyledListNavItem onClick={closeMobileMenuRouteClick}>
             <StyledLink
-            to="/"
+            to="/home"
             activeClassName="active"
             end>
             OM OSS
@@ -221,7 +222,7 @@ function HeaderTwoRows() {
           </StyledListNavItem>
           <StyledListNavItem onClick={closeMobileMenuRouteClick}>
             <StyledLink
-            to="/battlemode"
+            to="/findus"
             activeClassName="active">
             HITTA OSS
             </StyledLink>

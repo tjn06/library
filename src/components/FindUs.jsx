@@ -101,11 +101,35 @@ const StyledEditButton = styled.button`
   }
   `;
 
+const StyleContent = styled.div` 
+display: flex;
+justify-content: center;
+@media (max-width: 648px) {
+font-size: 1em;
+}
+`;
+
+const StyledHeaderText= styled.div` 
+  align-self: center;
+  font-size: 3em;
+  text-transform: uppercase;
+  color: #353535;
+  font-family: Oswald, sans-serif;
+  font-weight: 700;
+  letter-spacing: 5px;
+  word-spacing: 2px;
+/* text-shadow: 3px 2px 1px rgba(104, 104, 104, 0.13); */
+  @media (max-width: 648px) {
+    font-size: 1.5em;
+    align-self: center;
+  }
+`;
+
 
 const mediaQ = "686px"; // To all mediaquerys in styled components in this component
 // const mediaQNumber = 686; // To function closeMobileMenuRouteClick number without px is required
 
-const Menu = () => {
+const FindUs = () => {
   const [componentDataHome, seComponentDataHome] = useGlobalState('componentDataHome');
   const [showEdit] = useGlobalState('showEdit');
   const [showOrderData, setShowOrderData] = useState(false);
@@ -123,9 +147,10 @@ const Menu = () => {
     <EditMode
     key={2}
       showComponent={true}
-      componentLabel={"Meny produkter"} 
-      altOneComponent={<Products backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
-      altTwoComponent={<Products backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
+      componentLabel={"Karta"} 
+      // altOneComponent={<MapNav width='1024px' height='600px'/>} 
+      altOneComponent={<MapNavWithImage backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
+      altTwoComponent={<MapNavBig backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
     />,
   
     <EditMode
@@ -169,7 +194,7 @@ const Menu = () => {
     />,
   
     <EditMode
-    showComponent={true}
+    showComponent={false}
     key={8}
       componentLabel={"Bildgalleri"} 
       altOneComponent={<GridGalleryImages backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
@@ -196,15 +221,14 @@ const Menu = () => {
     <EditMode
     key={11}
     showComponent={false}
-      componentLabel={"Karta"} 
-      // altOneComponent={<MapNav width='1024px' height='600px'/>} 
-      altOneComponent={<MapNavWithImage backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
-      altTwoComponent={<MapNavBig backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
+      componentLabel={"Meny produkter"} 
+      altOneComponent={<Products backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
+      altTwoComponent={<Products backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
     />,
   
     <EditMode
     key={12}
-    showComponent={false}
+    showComponent={true}
       componentLabel={"Formulär"} 
       altOneComponent={<FormWithImage height="500px" mediaQueryBreakPoint={mediaQ} backgOne={'white'} backgTwo={'--color-backgblocklight'}/>} 
       altTwoComponent={<FormCenter height="500px" mediaQueryBreakPoint={mediaQ} backgOne={'white'} backgTwo={'--color-backgblocklight'}/>}
@@ -243,7 +267,7 @@ const Menu = () => {
 
   useEffect(() => {
     seComponentDataHome(data)
-       console.log(componentDataHome)
+      console.log(componentDataHome)
   }, [data])
 
   // const outputComponents = componentDataHome.map((component, index) => (
@@ -256,6 +280,10 @@ const Menu = () => {
 
   return (
   <StyledWrapper>
+
+    <StyleContent>
+      <StyledHeaderText>HITTA OSS</StyledHeaderText>.
+    </StyleContent>
 
     {showEdit ? (
       <StyledComponentData>
@@ -325,4 +353,4 @@ const Menu = () => {
   );
 }
 
-export default Menu;
+export default FindUs;

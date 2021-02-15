@@ -61,7 +61,7 @@ const StyledHeader = styled.header`
   transition: transform 0.3s ease;
   font-size: 0.8em;
   /* border-bottom: 1px solid rgb(255, 255, 255); */
-  z-index: 10; //Needed if using paralax
+  z-index: 10; 
   box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.13);
   
 
@@ -343,10 +343,10 @@ function Header() {
           <StyledNavOptions className={toggleHamburgerAndMenu ? "active" : ""}>
             <StyledListNavItem onClick={closeMobileMenuRouteClick}>
               <StyledLink
-              to="/"
+              to="/home"
               activeClassName="active"
               end>
-              OM OSS
+              HEM
               </StyledLink> 
             </StyledListNavItem>
             <StyledListNavItem onClick={closeMobileMenuRouteClick}>
@@ -358,7 +358,7 @@ function Header() {
             </StyledListNavItem>
             <StyledListNavItem onClick={closeMobileMenuRouteClick}>
               <StyledLink 
-              to="/find-us"
+              to="/findus"
               activeClassName="active">
               HITTA OSS
               </StyledLink>
@@ -367,7 +367,7 @@ function Header() {
               <StyledLink
               to="/faq"
               activeClassName="active">
-              FAQ
+              FAQ/
             </StyledLink>
             </StyledListNavItem>
           </StyledNavOptions>

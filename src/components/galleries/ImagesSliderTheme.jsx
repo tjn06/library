@@ -18,15 +18,15 @@ const ImagesSlider = () => {
 
   const images = [
     {
-      original: 'https://picsum.photos/id/527/1000/600/',
+      original: 'https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
       // thumbnail: 'https://picsum.photos/id/1018/250/150/',
     },
     {
-      original: 'https://picsum.photos/id/625/1000/600/',
+      original: 'https://images.unsplash.com/photo-1581873372796-635b67ca2008?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
       // thumbnail: 'https://picsum.photos/id/1015/250/150/',
     },
     {
-      original: 'https://picsum.photos/id/87/1000/600/',
+      original: 'https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
       // thumbnail: 'https://picsum.photos/id/1019/250/150/',
     },
   ];

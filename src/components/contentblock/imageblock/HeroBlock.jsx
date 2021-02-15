@@ -1,22 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import StandardButton from '../../buttons/StandardButton'
+import { useGlobalState } from '../../state';
 
 const image1 = "https://images.unsplash.com/photo-1560780552-ba54683cb263?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80";
-// const StyledParalaxHeight = styled.div`
-//   height: ${props => props.height};
-// `;
+const image2 = "https://images.unsplash.com/photo-1578596371629-0fe8c3c12f80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80";
+
 
 const StyledHeroBlock = styled.div`
   display: flex;
   width: 100%;
   height: ${props => props.height};
   /* background: #b81313; */
-  background-image: url(${image1});
+  background-image: url(${props => props.backgAlt ? props.image1 : props.image2});
+  /* background-image: url(${image1}); */
   background-repeat: no-repeat;
   background-size: cover;
   /* justify-content: center; */
-  /* align-items: center; */
+  align-items: center;
   color: black;
   
   @media (max-width: ${props => props.mediaQueryBreakPoint}) {
@@ -36,7 +37,7 @@ const StyledContent = styled.div`
   /* justify-content: center; */
   /* align-items: center; */
   color: black;
-  padding-top: 200px;
+  /* padding-top: 200px; */
   padding-left: 20%; 
   
   @media (max-width: ${props => props.mediaQueryBreakPoint}) {
@@ -93,17 +94,57 @@ const StyledBtnContainer = styled.div`
   }
 `;
 
+const StyledButton = styled.button`
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 130px;
+  background-color: #176fb8;
+  color: white;
+  margin: 3px 3px 1px 3px;
+  /* padding: 1px; */
+  box-shadow: 0px 0px 0px transparent;
+  border: 1px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  :hover {
+    box-shadow: 0px 0px 0px transparent;
+    border: 1px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+    background-color: #03A9F4;
+  }
+  :active {
+    outline: 0;
+    /* border: 1px solid black; */
+  }
+  :focus {
+    outline: 0;
+  }
+`;
 
 
-const HeroBlock = ({height, mediaQueryBreakPoint}, props) => (
-  <StyledHeroBlock height={height} mediaQueryBreakPoint={mediaQueryBreakPoint} >
- 
+
+const HeroBlock = ({height, mediaQueryBreakPoint}, props) => {
+  const [edit] = useGlobalState('showEdit');
+  const [backgAlt, setBackgAlt] = useGlobalState('backgHeroBlock');
+  // const [backg, setBackg] = useState(false);
+
+
+  return (
+  <StyledHeroBlock height={height} mediaQueryBreakPoint={mediaQueryBreakPoint} backgAlt={backgAlt} image1={image1} image2={image2}>
+    {edit ? (
+      <StyledButton onClick={() => setBackgAlt(!backgAlt)}>Skifta bakgrund</StyledButton>
+      ) : (
+        null
+      )
+    }
     <StyledContent>
     <StyledTextContent>
             <StyledTextPaddingBox>
-              <StyledHeadingText mediaQueryBreakPoint={mediaQueryBreakPoint}>15 års erfarenhet</StyledHeadingText>
-              <Text>15 års erfarenhet som snickare 🛠<br></br>
-              För privatkunder, företag el. samarbeten med andra bolag inom branschen</Text><br/>
+              <StyledHeadingText mediaQueryBreakPoint={mediaQueryBreakPoint}>Rubriktext Lorem ipsum</StyledHeadingText>
+              <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br></br>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</Text><br/>
               <StyledBtnContainer mediaQueryBreakPoint={mediaQueryBreakPoint}>
               <StandardButton fontsize="12px" fontweight="300" textcolor="white"
               width="15rem" height="3rem" margin="12px"
@@ -117,6 +158,7 @@ const HeroBlock = ({height, mediaQueryBreakPoint}, props) => (
     </StyledContent>
         
   </StyledHeroBlock>
-);
+  );
+};
 
 export default HeroBlock;

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import {Collapse} from 'react-collapse';
 import styled from "styled-components";
 import ContactBtn from './ContactBtn';
 
@@ -128,7 +127,6 @@ const ContactFixed = () => {
 
       </StyledReverseFlex>
     </StyledPosSizeCssClasses>
-    // collapse: 'collapse-container', content: 'collapse-children'
   );
 };
 

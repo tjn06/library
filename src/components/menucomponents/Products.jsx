@@ -1,4 +1,5 @@
 import React, { useState} from "react";
+import { useGlobalState } from '../state';
 // import standard from '../assets/standard.svg';
 // import family from '../assets/family.svg';
 // import { Routes, Route } from "react-router-dom";
@@ -11,9 +12,31 @@ import MenuOvrigt from './MenuOvrigt';
 
 import styled from "styled-components";
 
+const StyledTextCenter= styled.div` 
+  text-align: center;
+  background-color: ${props => props.backgAlt ?  props.backgOne : props.backgTwo};
+`;
+
+const StyledHeaderText= styled.div` 
+    font-size: 3em;
+  text-transform: uppercase;
+  color: #353535;
+  font-family: Oswald, sans-serif;
+  font-weight: 700;
+  letter-spacing: 5px;
+  word-spacing: 2px;
+/* text-shadow: 3px 2px 1px rgba(104, 104, 104, 0.13); */
+  @media (max-width: ${props => props.mediaQueryBreakPoint}) {
+    font-size: 2.5em;
+  }
+`;
+
 const StyledWrapperCentering = styled.div` 
   display: flex;
   justify-content: center;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
 `;
 
 const StyledContentWidth = styled.div` 
@@ -27,7 +50,7 @@ const StyledContentWidth = styled.div`
 
 const StyledCenter = styled.div` 
 display: flex;
-justify-content: space-evenly;
+justify-content: space-between;
 padding-bottom: 10px;
 `;
 
@@ -47,7 +70,38 @@ cursor: pointer;
 }
 `;
 
-const Products = () => {
+const StyledButton = styled.button`
+  position: absolute;
+  left: 0;
+  background-color: #176fb8;
+  color: white;
+  margin: 3px 3px 1px 3px;
+  /* padding: 1px; */
+  box-shadow: 0px 0px 0px transparent;
+  border: 1px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  :hover {
+    box-shadow: 0px 0px 0px transparent;
+    border: 1px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+    background-color: #03A9F4;
+  }
+  :active {
+    outline: 0;
+    /* border: 1px solid black; */
+  }
+  :focus {
+    outline: 0;
+}
+`;
+
+
+const Products = ({backgOne, backgTwo}) => {
+  const [edit] = useGlobalState('showEdit');
+  const [backgAlt, setBackgAlt] = useGlobalState('backgProducts');
+
   const PIZZA = 'pizza', KEBAB = 'kebab', SALLAD = 'sallad', DRYCK = 'dryck', OVRIGT = 'ovrigt';
 
   const [currentScreen, setCurrentScreen] = useState(PIZZA);
@@ -98,23 +152,31 @@ const Products = () => {
 
 
   return (
-  <StyledWrapperCentering>
-    <StyledContentWidth>
-      <StyledCenter> 
-      <StyledNavMenuItem onClick={pizzaScreen} className={activeClass === PIZZA  ? 'selected' : ''}> PIZZA </StyledNavMenuItem>
-      <StyledNavMenuItem > | </StyledNavMenuItem>
-      <StyledNavMenuItem onClick={kebabScreen} className={activeClass === KEBAB  ? 'selected' : ''}> KEBAB/FALAFEL </StyledNavMenuItem>
-      <StyledNavMenuItem > | </StyledNavMenuItem>
-      <StyledNavMenuItem onClick={salladScreen} className={activeClass === SALLAD  ? 'selected' : ''}> SALLAD </StyledNavMenuItem>
-      <StyledNavMenuItem > | </StyledNavMenuItem>
-      <StyledNavMenuItem onClick={dryckScreen} className={activeClass === DRYCK  ? 'selected' : ''}> DRYCK </StyledNavMenuItem>
-      <StyledNavMenuItem > | </StyledNavMenuItem>
-      <StyledNavMenuItem onClick={ovrigtScreen} className={activeClass === OVRIGT  ? 'selected' : ''}> ÖVRIGT </StyledNavMenuItem>
-      </StyledCenter>
-      {content}
-    </StyledContentWidth>
-  </StyledWrapperCentering>
-    
+    <StyledTextCenter backgAlt={backgAlt} backgOne={backgOne} backgTwo={backgTwo}>
+      {edit ? (
+      <StyledButton onClick={() => setBackgAlt(!backgAlt)}>Skifta bakgrund</StyledButton>
+      ) : (
+        null
+      )
+      }
+      <StyledHeaderText>MENY</StyledHeaderText>
+      <StyledWrapperCentering>
+        <StyledContentWidth>
+          <StyledCenter> 
+          <StyledNavMenuItem onClick={pizzaScreen} className={activeClass === PIZZA  ? 'selected' : ''}> PIZZA </StyledNavMenuItem>
+          <StyledNavMenuItem > | </StyledNavMenuItem>
+          <StyledNavMenuItem onClick={kebabScreen} className={activeClass === KEBAB  ? 'selected' : ''}> KEBAB/FALAFEL </StyledNavMenuItem>
+          <StyledNavMenuItem > | </StyledNavMenuItem>
+          <StyledNavMenuItem onClick={salladScreen} className={activeClass === SALLAD  ? 'selected' : ''}> SALLAD </StyledNavMenuItem>
+          <StyledNavMenuItem > | </StyledNavMenuItem>
+          <StyledNavMenuItem onClick={dryckScreen} className={activeClass === DRYCK  ? 'selected' : ''}> DRYCK </StyledNavMenuItem>
+          <StyledNavMenuItem > | </StyledNavMenuItem>
+          <StyledNavMenuItem onClick={ovrigtScreen} className={activeClass === OVRIGT  ? 'selected' : ''}> ÖVRIGT </StyledNavMenuItem>
+          </StyledCenter>
+          {content}
+        </StyledContentWidth>
+      </StyledWrapperCentering>
+    </StyledTextCenter>
   );
 };
 

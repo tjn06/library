@@ -225,7 +225,7 @@ const MenuDryck = () => {
   return (
   <div>
 
-
+  
     <FilterMenu setChildFilterAndLabelName={setThisFilterAndLabelName}
     firstFilter="Namn" secondFilter="Alkohol"/>
     <SearchMenu setChildFilteredProducts={setThisFilteredProducts}
@@ -239,7 +239,7 @@ const MenuDryck = () => {
 
       <StyledNavMenuItem onClick={() => setCategoryFilter('öl')} >Öl</StyledNavMenuItem>
       </StyledCenter>
-    
+  
 
     <StyledGridMenu>
       <StyledRowColWrapper>

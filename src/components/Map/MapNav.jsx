@@ -91,7 +91,18 @@ export default function MapNav({position, topPosition, width, height, radius, bo
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
-      <Marker position={[57.690301, 11.908471]} icon={teatIcon} >
+      <Marker position={[57.690320, 11.90848]} icon={teatIcon} >
+      <Hide></Hide>
+      <PopUP >
+        <Info>
+          <h1>Pizzeria Tobias</h1>
+          <span>Tele: <a href="tel:0707-123456">0707-123456</a></span><br />
+          <span>Mejl: <a href="cool@gmail.se">cool@gmail.se</a></span><br />
+          <span>Adress: Klippan 1e</span>
+        </Info>
+        </PopUP>
+        </Marker>
+        <Marker position={[57.690301, 11.908471]} icon={teatIcon} >
       <Hide></Hide>
       <PopUP >
         <Info>

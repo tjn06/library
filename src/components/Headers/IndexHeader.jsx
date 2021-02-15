@@ -15,8 +15,10 @@ function IndexHeader({showEdit}) {
     <div>
       <EditMode
         showEdit={showEdit}
-        componentLabel={"Herobild"}
+        componentLabel={"Header"}
+        showComponent={true}
         // direction={"column-reverse"}
+        showHeaderEdit={true}
         altOneComponent={<Header />} 
         altTwoComponent={<HeaderTwoRows />}
       />

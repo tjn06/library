@@ -46,7 +46,7 @@ const StyledImageFrame = styled.div`
   align-self: center;
   height: 100%;
   background-color: #343434;
-  border: 8px solid rgb(230, 230, 230);
+  border: 6px solid rgb(230, 230, 230);
   border-radius: 1px;
   color: #d9d9d9;
   
@@ -68,7 +68,7 @@ const StyledImageProps = styled.img`
 const StyledGridGalleryProps = styled.div`
   display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   grid-gap: 1.5rem;
   justify-items: center;
   /* align-items: center; */
@@ -103,21 +103,20 @@ const StyledButton = styled.button`
 }
 `;
 
-const GridGalleryImages = ({backgOne, backgTwo}) => {
+const GridGalleryImagesSmall = ({backgOne, backgTwo}) => {
   const [edit] = useGlobalState('showEdit');
-  // const [backgAlt, setBackgAlt] = useState(false);
-  const [backgAlt, setBackgAlt] = useGlobalState('backgGridGalleryImages');
+  const [backgAlt, setBackgAlt] = useGlobalState('backgGridGalleryImagesSmall');
 
   const elements = [
     {
-      src: 'https://images.unsplash.com/photo-1605361090829-024277543a04?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+      src: 'https://images.unsplash.com/photo-1553051021-9f94520a6cad?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
       thumbnail: 'https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg',
       caption: 'Bild 1',
       width: 22,
       height: 'auto'
     },
     {
-      src: 'https://images.unsplash.com/photo-1559183533-ee5f4826d3db?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1013&q=80',
+      src: 'https://images.unsplash.com/photo-1561297331-a9c00b9c2c44?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
       thumbnail:
         'https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg',
       caption: 'Bild 2',
@@ -125,7 +124,7 @@ const GridGalleryImages = ({backgOne, backgTwo}) => {
       height: 'auto'
     },
     {
-      src: 'https://images.unsplash.com/photo-1534963063257-6b65b54e438b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80',
+      src: 'https://images.unsplash.com/photo-1595844730289-b248c919d6f9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
       thumbnail:
         'https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg',
       caption: 'Bild 3',
@@ -133,7 +132,7 @@ const GridGalleryImages = ({backgOne, backgTwo}) => {
       height: 'auto'
     },
     {
-      src: 'https://images.unsplash.com/photo-1528137871618-79d2761e3fd5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+      src: 'https://images.unsplash.com/photo-1602856805912-5dab4ce4b618?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80',
       thumbnail:
         'https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg',
       caption: 'Bild 4',
@@ -141,7 +140,7 @@ const GridGalleryImages = ({backgOne, backgTwo}) => {
       height: 'auto'
     },
     {
-      src: 'https://images.unsplash.com/photo-1600346019001-8d56d1b51d59?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+      src: 'https://images.unsplash.com/photo-1560846389-e4e6d764cd61?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
       thumbnail:
         'https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg',
       caption: 'Bild 5',
@@ -149,7 +148,7 @@ const GridGalleryImages = ({backgOne, backgTwo}) => {
       height: 'auto'
     },
     {
-      src: 'https://images.unsplash.com/photo-1552580715-4d9bc27f1e2f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1029&q=80',
+      src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
       thumbnail: 'https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg',
       caption: 'Bild 6',
       width: 22,
@@ -158,7 +157,6 @@ const GridGalleryImages = ({backgOne, backgTwo}) => {
   ]
 
   const outputImageGrid = elements.map((image, index) => (
-    
     <StyledImageFrame key={index}>
       <StyledImageProps src={image.src} alt={image.caption} width='400' height='auto'/>
     </StyledImageFrame>
@@ -187,6 +185,6 @@ const GridGalleryImages = ({backgOne, backgTwo}) => {
   );
 };
 
-export default GridGalleryImages;
+export default GridGalleryImagesSmall;
 
 //Doumentation - https://www.npmjs.com/package/react-grid-gallery
